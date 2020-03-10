@@ -1,133 +1,209 @@
-// C++ implementation of Kosaraju algorithm to print all Strongly Conneceted Components of a Graph
 #include<bits/stdc++.h>
-
+#include <chrono> 
+using namespace std::chrono;
 using namespace std;
 
-class Graph {
-    int V;              // Number of Vertices
-    list<int> *adj;     // array of adjacency lists
+/// This Program is the Implementation of **Kosaraju Algorithm**.
+///
+/// We use two *DFS* algorithmic searches to find the **Connected Components**.
 
-    // Following function fills stack with vertices,the top element of stack has maximum finishing time
-    void fill_Order_of_finishing_time(int v, bool visited[], stack<int> &Stack);
+class Graph{
+public:
+	int nV,nE;
+	map<int,list<int> > adj; 
+	unordered_set<int> visited;
+	unordered_set<int> DFSvisited;
+	set<int,greater<int> >vertices;
+	stack<int> Top_order;
 
-    // A Recursive function to print DFS starting from v
-    void DFS_Utilities(int v, bool visited[]);
+	/// This is Constructor for the graph indicating nodes and edges
+	///
+	/// nodes are vertices and edges are connections. This is similar to insertEdge()
+	/// ### Example
+	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
+	/// Graph(int nV,int nE) { // constructor
+	/// 	this->nV = nV;
+	///		this->nE = nE;
+	/// }
+	/// ~~~~~~~~~~~~~~~~~~~~~~
+	/// @param nV : Number of Vertices
+	/// @param nE : Number of Edges
+	/// @returns nothing is returned
+	/// @see insertEdge()  main()
+	/// @note This is a constructor
+	/// @attention This is constructor for the graph
+	/// @warning It is required to specify nV and nE
 
-    public:
-        Graph(int V);
-        void add_Edge(int v, int w);
-        void print_SCCs();              // Function finds and prints all connected components
-        Graph get_Transpose();          // Function that returns transpose of Graph
+	Graph(int nV,int nE){
+		this->nV = nV;
+		this->nE = nE;
+	}
+
+
+	/// This is Constructor for the graph indicating nodes and edges
+	///
+	/// nodes are vertices and edges are connections. This is similar to insertEdge()
+	/// ### Example
+	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
+	/// Graph(int nV,int nE) { // constructor
+	/// 	this->nV = nV;
+	///		this->nE = nE;
+	/// }
+	/// ~~~~~~~~~~~~~~~~~~~~~~
+	/// @param nV : Number of Vertices
+	/// @param nE : Number of Edges
+	/// @returns nothing is returned
+	/// @see insertEdge()  main()
+	/// @note This is a constructor
+	/// @attention This is constructor for the graph
+	/// @warning It is required to specify nV and nE
+
+	void insertEdge(int a,int b){
+		adj[a].push_back(b); //lists are only for those which have outgoing edges
+		vertices.insert(a);
+		vertices.insert(b);  //all vertices  are in set right now
+	}
+
+	/// This is Constructor for the graph indicating nodes and edges
+	///
+	/// nodes are vertices and edges are connections. This is similar to insertEdge()
+	/// ### Example
+	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
+	/// Graph(int nV,int nE) { // constructor
+	/// 	this->nV = nV;
+	///		this->nE = nE;
+	/// }
+	/// ~~~~~~~~~~~~~~~~~~~~~~
+	/// @param nV : Number of Vertices
+	/// @param nE : Number of Edges
+	/// @returns nothing is returned
+	/// @see insertEdge()  main()
+	/// @note This is a constructor
+	/// @attention This is constructor for the graph
+	/// @warning It is required to specify nV and nE
+
+	Graph reverseGraph(){
+		Graph newGraph =  Graph(nV,nE);
+		for(auto i :adj){
+			for(auto j:i.second){
+				newGraph.adj[j].push_back(i.first);
+			}
+		}
+		return newGraph;
+	}
+
+	/// This is Constructor for the graph indicating nodes and edges
+	///
+	/// nodes are vertices and edges are connections. This is similar to insertEdge()
+	/// ### Example
+	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
+	/// Graph(int nV,int nE) { // constructor
+	/// 	this->nV = nV;
+	///		this->nE = nE;
+	/// }
+	/// ~~~~~~~~~~~~~~~~~~~~~~
+	/// @param nV : Number of Vertices
+	/// @param nE : Number of Edges
+	/// @returns nothing is returned
+	/// @see insertEdge()  main()
+	/// @note This is a constructor
+	/// @attention This is constructor for the graph
+	/// @warning It is required to specify nV and nE
+
+	void topological_sort(int vertex){
+		visited.insert(vertex); // insert element into set of visited vertices
+		list<int>::iterator iter;
+		for(iter = adj[vertex].begin(); iter!= adj[vertex].end();iter++){
+			if(visited.find(*iter)==visited.end()){
+				topological_sort(*iter);
+			}
+		}
+		Top_order.push(vertex);
+	}
+
+	/// This is Constructor for the graph indicating nodes and edges
+	///
+	/// nodes are vertices and edges are connections. This is similar to insertEdge()
+	/// ### Example
+	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
+	/// Graph(int nV,int nE) { // constructor
+	/// 	this->nV = nV;
+	///		this->nE = nE;
+	/// }
+	/// ~~~~~~~~~~~~~~~~~~~~~~
+	/// @param nV : Number of Vertices
+	/// @param nE : Number of Edges
+	/// @returns nothing is returned
+	/// @see insertEdge()  main()
+	/// @note This is a constructor
+	/// @attention This is constructor for the graph
+	/// @warning It is required to specify nV and nE
+
+	void DFS(int vertex){
+		cout<<vertex << " ";
+		DFSvisited.insert(vertex);
+		list<int>::iterator iter;
+		for(iter = adj[vertex].begin(); iter!= adj[vertex].end();iter++){
+			if(DFSvisited.find(*iter)==DFSvisited.end()){
+				DFS(*iter);
+			}
+		}
+	}	
 };
 
-Graph::Graph(int V) {
-    this->V = V;
-    adj = new list<int>[V];
-}
+/// This is Constructor for the graph indicating nodes and edges
+///
+/// nodes are vertices and edges are connections. This is similar to insertEdge()
+/// ### Example
+/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
+/// Graph(int nV,int nE) { // constructor
+/// 	this->nV = nV;
+///		this->nE = nE;
+/// }
+/// ~~~~~~~~~~~~~~~~~~~~~~
+/// @param nV : Number of Vertices
+/// @param nE : Number of Edges
+/// @returns nothing is returned
+/// @see insertEdge()  main()
+/// @note This is a constructor
+/// @attention This is constructor for the graph
+/// @warning It is required to specify nV and nE
 
-void Graph::add_Edge(int v, int w) { 
-    adj[v].push_back(w);                // Add w to v’s list. 
-} 
+int main(){
 
-// void PrintStack(stack<int> s) { 
-//     // If stack is empty then return 
-//     if (s.empty())  
-//         return; 
-//     int x = s.top(); 
-//     // Pop the top element of the stack 
-//     s.pop(); 
-//     // Recursively call the function PrintStack 
-//     PrintStack(s); 
-//     // Print the stack element starting 
-//     // from the bottom 
-//     cout << x << " "; 
-//     // Push the same element onto the stack 
-//     // to preserve the order 
-//     s.push(x); 
-// } 
+	auto start = high_resolution_clock::now();
 
-void Graph::fill_Order_of_finishing_time(int v, bool visited[], stack<int> &Stack) { 
-    
-    visited[v] = true;                   // Mark the current node as visited and print it
-  
-    list<int>::iterator i;               // Recur for all the vertices adjacent to this vertex 
-    for(i = adj[v].begin(); i != adj[v].end(); i++) 
-        if(visited[*i]==false) 
-            fill_Order_of_finishing_time(*i, visited, Stack); 
-  
-    Stack.push(v);                       // All vertices reachable from v are processed by now, push v 
-    // PrintStack(Stack);
-    // cout << "\n";
-    // cout << v << " ";
-} 
+	int nV,nE,v1,v2;
+	cin>>nV>>nE;
+	Graph g =  Graph(nV,nE);
 
-void Graph::DFS_Utilities(int v, bool visited[]) {
+	for(int i=0;i<nE;i++){
+		cin>>v1>>v2;
+		g.insertEdge(v1,v2);
+	}
 
-    visited[v] = true;                  // Mark the current node as visited and print it 
-    cout << v << " ";
+	for(auto i:g.vertices){
+		// i is vertex in set of all vertices
+		if(g.visited.find(i)==g.visited.end()){
+			g.topological_sort(i);
+		}
+	} 
 
-    list<int>::iterator i;              // Recur for all the vertices adjacent to this vertex 
-    for(i=adj[v].begin();i!=adj[v].end();i++) {
-        if(visited[*i]==false)
-            DFS_Utilities(*i,visited);
-    }
-}
+	Graph newGraph = g.reverseGraph();
 
+	cout<<"\nConnnected Components are :\n";
+	while(g.Top_order.empty()==false){
+		int vertex = g.Top_order.top();
+		if(newGraph.DFSvisited.find(vertex)==newGraph.DFSvisited.end()){
+			newGraph.DFS(vertex);
+			cout<<"\n";
+		}
+		g.Top_order.pop();
+	}
 
+	auto stop = high_resolution_clock::now();
+	auto duration = duration_cast<milliseconds>(stop - start); 
+	cout << "Time taken: "<<duration.count() << endl;
 
-Graph Graph::get_Transpose() { 
-    Graph g(V); 
-    for (int v=0;v<V;v++) {     
-        list<int>::iterator i;          // Recur for all the vertices adjacent to this vertex 
-        for(i=adj[v].begin();i!=adj[v].end();i++) { 
-            g.adj[*i].push_back(v); 
-        } 
-    } 
-    return g; 
-} 
-
-
-
-
-// The main function that finds and prints all strongly connected components 
-void Graph::print_SCCs() { 
-    stack<int> Stack; 
-   
-    bool *visited = new bool[V];        // Mark all the vertices as not visited (For first DFS) 
-    for(int i = 0; i < V; i++) 
-        visited[i] = false; 
-   
-    for(int i = 0; i < V; i++)          // Fill vertices in stack according to their finishing times
-        if(visited[i] == false) 
-            fill_Order_of_finishing_time(i, visited, Stack); 
-  
-    Graph gr = get_Transpose();         // Create a reversed graph 
-   
-    for(int i = 0; i < V; i++)          // Mark all the vertices as not visited (For second DFS) 
-        visited[i] = false; 
-    
-    while (Stack.empty() == false) {    // Now process all vertices in order defined by Stack                                     
-        int v = Stack.top();            // Pop a vertex from stack
-        Stack.pop();                                   
-        if (visited[v] == false) {      // Print Strongly connected component of the popped vertex
-            gr.DFS_Utilities(v, visited); 
-            cout << endl; 
-        } 
-    } 
-} 
-
-int main() {
-    int v,e;
-    cout << "Enter the number of vertices and edges in the Directed Graph\n";
-    cin >> v >> e;
-    Graph graph(v);
-    cout << "Enter the Edges of the Directed Graph\n";
-    int x,y;
-    for(int i=0;i<e;i++) {
-        cin >> x >> y;
-        graph.add_Edge(x,y);
-    }
-    cout << "The Connected Components of the Given Graph are : \n";
-    graph.print_SCCs();
-    return 0;
+	return 0;
 }
