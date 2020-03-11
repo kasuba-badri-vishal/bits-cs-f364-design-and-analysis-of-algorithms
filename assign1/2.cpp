@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-// #include<sys/resource.h> 
+#include<sys/resource.h> 
 #include <chrono> 
 using namespace std::chrono;
 using namespace std;
@@ -108,10 +108,10 @@ int main(){
 	/* uncomment the lines below and <sys.resource.h> 
 	header to increase stack mem in linux.*/
 
-	// rlimit R;
-	// getrlimit(RLIMIT_STACK, &R);
-	// R.rlim_cur = R.rlim_max;
-	// setrlimit(RLIMIT_STACK, &R);
+	rlimit R;
+	getrlimit(RLIMIT_STACK, &R);
+	R.rlim_cur = R.rlim_max;
+	setrlimit(RLIMIT_STACK, &R);
 
 	int v, e; cin >> v >> e;
 
