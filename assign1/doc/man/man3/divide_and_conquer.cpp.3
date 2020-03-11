@@ -1,0 +1,176 @@
+.TH "src/divide_and_conquer.cpp" 3 "Wed Mar 11 2020" "Version 1" "DAA Assignment - 1" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/divide_and_conquer.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <bits/stdc++\&.h>\fP
+.br
+\fC#include <chrono>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBGraph\fP"
+.br
+.RI "This Program is the Implementation of \fBKosaraju Algorithm\fP\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBN\fP   1000"
+.br
+.ti -1c
+.RI "#define \fBll\fP   long long"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBDCSC\fP (\fBGraph\fP g)"
+.br
+.RI "This is Constructor for the graph indicating nodes and edges\&. "
+.ti -1c
+.RI "int \fBmain\fP ()"
+.br
+.RI "This is Constructor for the graph indicating nodes and edges\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "unordered_map< int, list< int > > \fBadj\fP"
+.br
+.RI "This Program is the Implementation of \fBDivide_and_Conquer Algorithm\fP defined in the research paper\&. "
+.ti -1c
+.RI "unordered_map< int, list< int > > \fBrev_adj\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ll   long long"
+
+.PP
+Definition at line 7 of file divide_and_conquer\&.cpp\&.
+.SS "#define N   1000"
+
+.PP
+Definition at line 6 of file divide_and_conquer\&.cpp\&.
+.SH "Function Documentation"
+.PP 
+.SS "void DCSC (\fBGraph\fP g)"
+
+.PP
+This is Constructor for the graph indicating nodes and edges\&. nodes are vertices and edges are connections\&. This constructor is called first of insertEdge() ### Example 
+.PP
+.nf
+Graph(int nV,int nE) { // constructor
+    this->nV = nV;
+    this->nE = nE;
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInV\fP : Number of Vertices 
+.br
+\fInE\fP : Number of Edges 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+nothing is returned 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+insertEdge() \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This is a constructor 
+.RE
+.PP
+\fBAttention:\fP
+.RS 4
+This is constructor for the graph 
+.RE
+.PP
+
+.PP
+Definition at line 170 of file divide_and_conquer\&.cpp\&.
+.SS "int main ()"
+
+.PP
+This is Constructor for the graph indicating nodes and edges\&. nodes are vertices and edges are connections\&. This constructor is called first of insertEdge() ### Example 
+.PP
+.nf
+Graph(int nV,int nE) { // constructor
+    this->nV = nV;
+    this->nE = nE;
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInV\fP : Number of Vertices 
+.br
+\fInE\fP : Number of Edges 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+nothing is returned 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+insertEdge() \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This is a constructor 
+.RE
+.PP
+\fBAttention:\fP
+.RS 4
+This is constructor for the graph 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+It is required to specify nV and nE 
+.RE
+.PP
+
+.PP
+Definition at line 222 of file divide_and_conquer\&.cpp\&.
+.SH "Variable Documentation"
+.PP 
+.SS "unordered_map<int, list<int> > adj"
+
+.PP
+This Program is the Implementation of \fBDivide_and_Conquer Algorithm\fP defined in the research paper\&. We use DCSC, predecesser,descendent methods to find the \fBConnected Components\fP\&. 
+.PP
+Definition at line 13 of file divide_and_conquer\&.cpp\&.
+.SS "unordered_map<int, list<int> > rev_adj"
+
+.PP
+Definition at line 14 of file divide_and_conquer\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DAA Assignment - 1 from the source code\&.

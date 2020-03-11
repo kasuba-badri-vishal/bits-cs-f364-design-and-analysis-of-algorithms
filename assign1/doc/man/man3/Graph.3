@@ -1,0 +1,562 @@
+.TH "Graph" 3 "Wed Mar 11 2020" "Version 1" "DAA Assignment - 1" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Graph \- This Program is the Implementation of \fBKosaraju Algorithm\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGraph\fP (int \fBn_edges\fP)"
+.br
+.RI "This is Constructor for the graph indicating number of edges\&. "
+.ti -1c
+.RI "\fBGraph\fP (set< int > V1)"
+.br
+.RI "This is Constructor for the graph\&. "
+.ti -1c
+.RI "set< int > \fBgetPred\fP (int x)"
+.br
+.RI "This is Constructor for the graph indicating nodes and edges\&. "
+.ti -1c
+.RI "set< int > \fBgetDesc\fP (int x)"
+.br
+.RI "This is Constructor for the graph indicating nodes and edges\&. "
+.ti -1c
+.RI "\fBGraph\fP (int \fBnV\fP, int \fBnE\fP)"
+.br
+.RI "This is Constructor for the graph indicating nodes and edges\&. "
+.ti -1c
+.RI "void \fBinsertEdge\fP (int a, int b)"
+.br
+.RI "This is a method inside the \fI\fBGraph\fP class\fP for the graph indicating insertion of edges\&. "
+.ti -1c
+.RI "\fBGraph\fP \fBreverseGraph\fP ()"
+.br
+.RI "This is a method inside the \fI\fBGraph\fP class\fP for reversing the graph\&. "
+.ti -1c
+.RI "void \fBtopological_sort\fP (int vertex)"
+.br
+.RI "This is a method inside \fBGraph\fP Class which does sorts vertices inside graph using topological sorting based on vertices if they are visited or not and push them onto the stack \fITop_order\fP nodes are vertices and edges are connections\&. "
+.ti -1c
+.RI "void \fBDFS\fP (int vertex)"
+.br
+.RI "This is a method inside \fBGraph\fP Class which does \fIDepth First Search\fP on the \fBGraph\fP\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBn_edges\fP"
+.br
+.ti -1c
+.RI "set< int > \fBV\fP"
+.br
+.ti -1c
+.RI "int \fBnV\fP"
+.br
+.ti -1c
+.RI "int \fBnE\fP"
+.br
+.ti -1c
+.RI "map< int, list< int > > \fBadj\fP"
+.br
+.ti -1c
+.RI "unordered_set< int > \fBvisited\fP"
+.br
+.ti -1c
+.RI "unordered_set< int > \fBDFSvisited\fP"
+.br
+.ti -1c
+.RI "set< int, greater< int > > \fBvertices\fP"
+.br
+.ti -1c
+.RI "stack< int > \fBTop_order\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This Program is the Implementation of \fBKosaraju Algorithm\fP\&. 
+
+We use two \fIDFS\fP algorithmic searches to find the \fBConnected Components\fP\&. 
+.PP
+Definition at line 16 of file divide_and_conquer\&.cpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Graph::Graph (int n_edges)\fC [inline]\fP"
+
+.PP
+This is Constructor for the graph indicating number of edges\&. nodes are vertices and edges are connections\&. This constructor is called for instanciating \fBGraph\fP ### Example 
+.PP
+.nf
+Graph(int n_edges){
+    this->n_edges = n_edges;
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn_edges\fP : number of edges 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+nothing is returned 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+get_pred() \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This is a constructor of \fBGraph\fP class 
+.RE
+.PP
+\fBAttention:\fP
+.RS 4
+It is required to specify n_edges 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+There is another constructor with different type, so argument is crucial to call one constructor\&. 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file divide_and_conquer\&.cpp\&.
+.SS "Graph::Graph (set< int > V1)\fC [inline]\fP"
+
+.PP
+This is Constructor for the graph\&. nodes are vertices and edges are connections\&. This constructor is called first of \fBinsertEdge()\fP ### Example 
+.PP
+.nf
+Graph(set<int> V1){
+    V = V1;
+    n_edges = 0;
+    for(auto x: V){
+        for(auto y: adj[x]){
+            if(V\&.find(y)!=V\&.end()) n_edges++;
+        }
+    }
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInV\fP : Number of Vertices 
+.br
+\fInE\fP : Number of Edges 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+nothing is returned 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsertEdge()\fP \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This is a constructor 
+.RE
+.PP
+\fBAttention:\fP
+.RS 4
+This is constructor for the graph 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+It is required to specify nV and nE 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file divide_and_conquer\&.cpp\&.
+.SS "Graph::Graph (int nV, int nE)\fC [inline]\fP"
+
+.PP
+This is Constructor for the graph indicating nodes and edges\&. nodes are vertices and edges are connections\&. This constructor is called first of \fBinsertEdge()\fP ### Example 
+.PP
+.nf
+Graph(int nV,int nE) { // constructor
+    this->nV = nV;
+    this->nE = nE;
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInV\fP : Number of Vertices 
+.br
+\fInE\fP : Number of Edges 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+nothing is returned 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsertEdge()\fP \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This is a constructor 
+.RE
+.PP
+\fBAttention:\fP
+.RS 4
+This is constructor for the graph 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+It is required to specify nV and nE 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file kosaraju_algorithm\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Graph::DFS (int vertex)\fC [inline]\fP"
+
+.PP
+This is a method inside \fBGraph\fP Class which does \fIDepth First Search\fP on the \fBGraph\fP\&. We traverse ### Example 
+.PP
+.nf
+void DFS(int vertex){
+    cout<<vertex << " ";
+    DFSvisited\&.insert(vertex);
+    list<int>::iterator iter;
+    for(iter = adj[vertex]\&.begin(); iter!= adj[vertex]\&.end();iter++){
+        if(DFSvisited\&.find(*iter)==DFSvisited\&.end()){
+            DFS(*iter);
+        }
+    }
+}   
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvertex\fP : vertex of \fBGraph\fP on which DFS is performed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+nothing is returned 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtopological_sort()\fP \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+DFS is done two times in kosaraju_algorithm and DFS is a recursive function 
+.RE
+.PP
+
+.PP
+Definition at line 150 of file kosaraju_algorithm\&.cpp\&.
+.SS "set<int> Graph::getDesc (int x)\fC [inline]\fP"
+
+.PP
+This is Constructor for the graph indicating nodes and edges\&. nodes are vertices and edges are connections\&. This constructor is called first of \fBinsertEdge()\fP ### Example 
+.PP
+.nf
+Graph(int nV,int nE) { // constructor
+    this->nV = nV;
+    this->nE = nE;
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInV\fP : Number of Vertices 
+.br
+\fInE\fP : Number of Edges 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+nothing is returned 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsertEdge()\fP \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This is a constructor 
+.RE
+.PP
+\fBAttention:\fP
+.RS 4
+This is constructor for the graph 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+It is required to specify nV and nE 
+.RE
+.PP
+
+.PP
+Definition at line 132 of file divide_and_conquer\&.cpp\&.
+.SS "set<int> Graph::getPred (int x)\fC [inline]\fP"
+
+.PP
+This is Constructor for the graph indicating nodes and edges\&. nodes are vertices and edges are connections\&. This constructor is called first of \fBinsertEdge()\fP ### Example 
+.PP
+.nf
+Graph(int nV,int nE) { // constructor
+    this->nV = nV;
+    this->nE = nE;
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInV\fP : Number of Vertices 
+.br
+\fInE\fP : Number of Edges 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+nothing is returned 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsertEdge()\fP \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This is a constructor 
+.RE
+.PP
+\fBAttention:\fP
+.RS 4
+This is constructor for the graph 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+It is required to specify nV and nE 
+.RE
+.PP
+
+.PP
+Definition at line 92 of file divide_and_conquer\&.cpp\&.
+.SS "void Graph::insertEdge (int a, int b)\fC [inline]\fP"
+
+.PP
+This is a method inside the \fI\fBGraph\fP class\fP for the graph indicating insertion of edges\&. nodes are vertices and edges are connections\&. This method is called after \fBGraph()\fP constructor is called\&. ### Example 
+.PP
+.nf
+void insertEdge(int a,int b){
+    adj[a]\&.push_back(b); //lists are only for those which have outgoing edges
+    vertices\&.insert(a);
+    vertices\&.insert(b);  //all vertices  are in set right now
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP : vertex of \fBGraph\fP having \fIoutgoing edge\fP to b 
+.br
+\fInE\fP : vertex of \fBGraph\fP having \fIincoming edge\fP from a 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+nothing is returned 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBGraph()\fP \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This is a function inside \fBGraph\fP class and we are adding all vertices into set - \fIvertices\fP 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+It is required to specify a and b 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file kosaraju_algorithm\&.cpp\&.
+.SS "\fBGraph\fP Graph::reverseGraph ()\fC [inline]\fP"
+
+.PP
+This is a method inside the \fI\fBGraph\fP class\fP for reversing the graph\&. We reverse the graph for comparing original graph to find \fISCC\fP\&. ### Function looks like this 
+.PP
+.nf
+Graph reverseGraph(){
+    Graph newGraph =  Graph(nV,nE);
+    for(auto i :adj){
+        for(auto j:i\&.second){
+            newGraph\&.adj[j]\&.push_back(i\&.first);
+        }
+    }
+    return newGraph;
+}
+
+.fi
+.PP
+ 
+.PP
+\fBReturns:\fP
+.RS 4
+The function returns newGraph which is reversed it's edge directions 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtopological_sort()\fP \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+Reversed \fBGraph\fP contains same no\&. of vertices and edges just direction of edges changes\&. 
+.RE
+.PP
+
+.PP
+Definition at line 86 of file kosaraju_algorithm\&.cpp\&.
+.SS "void Graph::topological_sort (int vertex)\fC [inline]\fP"
+
+.PP
+This is a method inside \fBGraph\fP Class which does sorts vertices inside graph using topological sorting based on vertices if they are visited or not and push them onto the stack \fITop_order\fP nodes are vertices and edges are connections\&. This is similar to \fBinsertEdge()\fP ### Example 
+.PP
+.nf
+void topological_sort(int vertex){
+    visited\&.insert(vertex); // insert element into set of visited vertices
+    list<int>::iterator iter;
+    for(iter = adj[vertex]\&.begin(); iter!= adj[vertex]\&.end();iter++){
+        if(visited\&.find(*iter)==visited\&.end()){
+            topological_sort(*iter);
+        }
+    }
+    Top_order\&.push(vertex);
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvertex\fP : vertex of \fBGraph\fP which is the next visited vertex 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+nothing is returned 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBDFS()\fP \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This function helps in building stack which is used to compare original graph and reversed graph for finding SCC\&. 
+.RE
+.PP
+\fBAttention:\fP
+.RS 4
+This is a linear ordering of vertices and done for Directed Acyclic Graphs 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file kosaraju_algorithm\&.cpp\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "map<int,list<int> > Graph::adj"
+
+.PP
+Definition at line 13 of file kosaraju_algorithm\&.cpp\&.
+.SS "unordered_set<int> Graph::DFSvisited"
+
+.PP
+Definition at line 15 of file kosaraju_algorithm\&.cpp\&.
+.SS "int Graph::n_edges"
+
+.PP
+Definition at line 18 of file divide_and_conquer\&.cpp\&.
+.SS "int Graph::nE"
+
+.PP
+Definition at line 12 of file kosaraju_algorithm\&.cpp\&.
+.SS "int Graph::nV"
+
+.PP
+Definition at line 12 of file kosaraju_algorithm\&.cpp\&.
+.SS "stack<int> Graph::Top_order"
+
+.PP
+Definition at line 17 of file kosaraju_algorithm\&.cpp\&.
+.SS "set<int> Graph::V"
+
+.PP
+Definition at line 19 of file divide_and_conquer\&.cpp\&.
+.SS "set<int,greater<int> > Graph::vertices"
+
+.PP
+Definition at line 16 of file kosaraju_algorithm\&.cpp\&.
+.SS "unordered_set<int> Graph::visited"
+
+.PP
+Definition at line 14 of file kosaraju_algorithm\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DAA Assignment - 1 from the source code\&.
