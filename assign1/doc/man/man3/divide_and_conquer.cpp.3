@@ -1,4 +1,4 @@
-.TH "src/divide_and_conquer.cpp" 3 "Wed Mar 11 2020" "Version 1" "DAA Assignment - 1" \" -*- nroff -*-
+.TH "src/divide_and_conquer.cpp" 3 "Thu Mar 12 2020" "Version 1" "DAA Assignment - 1" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,9 +15,8 @@ src/divide_and_conquer.cpp
 
 .in +1c
 .ti -1c
-.RI "class \fBGraph\fP"
+.RI "class \fBGraph1\fP"
 .br
-.RI "This Program is the Implementation of \fBKosaraju Algorithm\fP\&. "
 .in -1c
 .SS "Macros"
 
@@ -33,13 +32,13 @@ src/divide_and_conquer.cpp
 
 .in +1c
 .ti -1c
-.RI "void \fBDCSC\fP (\fBGraph\fP g)"
+.RI "void \fBDCSC\fP (\fBGraph1\fP g)"
 .br
-.RI "This is Constructor for the graph indicating nodes and edges\&. "
+.RI "This is the core function of the Divide and Conquer Algorithm to find Strongly Connected Components\&. "
 .ti -1c
 .RI "int \fBmain\fP ()"
 .br
-.RI "This is Constructor for the graph indicating nodes and edges\&. "
+.RI "This is the main function of this c++ program\&. "
 .in -1c
 .SS "Variables"
 
@@ -47,7 +46,7 @@ src/divide_and_conquer.cpp
 .ti -1c
 .RI "unordered_map< int, list< int > > \fBadj\fP"
 .br
-.RI "This Program is the Implementation of \fBDivide_and_Conquer Algorithm\fP defined in the research paper\&. "
+.RI "This Program is the Implementation of \fBDivide_and_Conquer Algorithm\fP presented in the research paper\&. "
 .ti -1c
 .RI "unordered_map< int, list< int > > \fBrev_adj\fP"
 .br
@@ -64,16 +63,22 @@ Definition at line 7 of file divide_and_conquer\&.cpp\&.
 Definition at line 6 of file divide_and_conquer\&.cpp\&.
 .SH "Function Documentation"
 .PP 
-.SS "void DCSC (\fBGraph\fP g)"
+.SS "void DCSC (\fBGraph1\fP g)"
 
 .PP
-This is Constructor for the graph indicating nodes and edges\&. nodes are vertices and edges are connections\&. This constructor is called first of insertEdge() ### Example 
+This is the core function of the Divide and Conquer Algorithm to find Strongly Connected Components\&. ### Algorithm 
 .PP
 .nf
-Graph(int nV,int nE) { // constructor
-    this->nV = nV;
-    this->nE = nE;
-}
+DCSC(G)
+    If G has no edges then
+        forall v in V Output {v}\&.
+    Else
+        Select a random vertex v from V
+        SCC <- Pred(G, v) \ Desc(G, v)
+        Output SCC
+        DCSC(Pred(G, v) \ SCC)
+        DCSC(Desc(G, v) \ SCC)
+        DCSC(Rem(G, v))
 
 .fi
 .PP
@@ -81,9 +86,7 @@ Graph(int nV,int nE) { // constructor
 .PP
 \fBParameters:\fP
 .RS 4
-\fInV\fP : Number of Vertices 
-.br
-\fInE\fP : Number of Edges 
+\fIg\fP : \fBGraph1\fP on which the algorithm is to be applied 
 .RE
 .PP
 \fBReturns:\fP
@@ -93,78 +96,41 @@ nothing is returned
 .PP
 \fBSee also:\fP
 .RS 4
-insertEdge() \fBmain()\fP 
-.RE
-.PP
-\fBNote:\fP
-.RS 4
-This is a constructor 
-.RE
-.PP
-\fBAttention:\fP
-.RS 4
-This is constructor for the graph 
+getPred() getDesc() \fBmain()\fP 
 .RE
 .PP
 
 .PP
-Definition at line 170 of file divide_and_conquer\&.cpp\&.
+Definition at line 157 of file divide_and_conquer\&.cpp\&.
 .SS "int main ()"
 
 .PP
-This is Constructor for the graph indicating nodes and edges\&. nodes are vertices and edges are connections\&. This constructor is called first of insertEdge() ### Example 
-.PP
-.nf
-Graph(int nV,int nE) { // constructor
-    this->nV = nV;
-    this->nE = nE;
-}
-
-.fi
-.PP
- 
-.PP
-\fBParameters:\fP
-.RS 4
-\fInV\fP : Number of Vertices 
-.br
-\fInE\fP : Number of Edges 
-.RE
+This is the main function of this c++ program\&. A \fBGraph1\fP object is created using data from input and the function DCSC is called on this \fBGraph1\fP\&.
 .PP
 \fBReturns:\fP
 .RS 4
-nothing is returned 
+int 
 .RE
 .PP
 \fBSee also:\fP
 .RS 4
-insertEdge() \fBmain()\fP 
+\fBDCSC()\fP 
 .RE
 .PP
 \fBNote:\fP
 .RS 4
-This is a constructor 
-.RE
-.PP
-\fBAttention:\fP
-.RS 4
-This is constructor for the graph 
-.RE
-.PP
-\fBWarning:\fP
-.RS 4
-It is required to specify nV and nE 
+This is the main function 
 .RE
 .PP
 
 .PP
-Definition at line 222 of file divide_and_conquer\&.cpp\&.
+Definition at line 200 of file divide_and_conquer\&.cpp\&.
 .SH "Variable Documentation"
 .PP 
 .SS "unordered_map<int, list<int> > adj"
 
 .PP
-This Program is the Implementation of \fBDivide_and_Conquer Algorithm\fP defined in the research paper\&. We use DCSC, predecesser,descendent methods to find the \fBConnected Components\fP\&. 
+This Program is the Implementation of \fBDivide_and_Conquer Algorithm\fP presented in the research paper\&. We use DCSC, predecesser,descendent methods to find the \fBStroingly Connected Components\fP\&. 
 .PP
 Definition at line 13 of file divide_and_conquer\&.cpp\&.
 .SS "unordered_map<int, list<int> > rev_adj"

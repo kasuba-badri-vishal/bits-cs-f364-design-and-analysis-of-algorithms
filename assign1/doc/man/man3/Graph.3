@@ -1,4 +1,4 @@
-.TH "Graph" 3 "Wed Mar 11 2020" "Version 1" "DAA Assignment - 1" \" -*- nroff -*-
+.TH "Graph" 3 "Thu Mar 12 2020" "Version 1" "DAA Assignment - 1" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,22 +10,6 @@ Graph \- This Program is the Implementation of \fBKosaraju Algorithm\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
-.ti -1c
-.RI "\fBGraph\fP (int \fBn_edges\fP)"
-.br
-.RI "This is Constructor for the graph indicating number of edges\&. "
-.ti -1c
-.RI "\fBGraph\fP (set< int > V1)"
-.br
-.RI "This is Constructor for the graph\&. "
-.ti -1c
-.RI "set< int > \fBgetPred\fP (int x)"
-.br
-.RI "This is Constructor for the graph indicating nodes and edges\&. "
-.ti -1c
-.RI "set< int > \fBgetDesc\fP (int x)"
-.br
-.RI "This is Constructor for the graph indicating nodes and edges\&. "
 .ti -1c
 .RI "\fBGraph\fP (int \fBnV\fP, int \fBnE\fP)"
 .br
@@ -50,12 +34,6 @@ Graph \- This Program is the Implementation of \fBKosaraju Algorithm\fP\&.
 .SS "Public Attributes"
 
 .in +1c
-.ti -1c
-.RI "int \fBn_edges\fP"
-.br
-.ti -1c
-.RI "set< int > \fBV\fP"
-.br
 .ti -1c
 .RI "int \fBnV\fP"
 .br
@@ -84,111 +62,9 @@ This Program is the Implementation of \fBKosaraju Algorithm\fP\&.
 
 We use two \fIDFS\fP algorithmic searches to find the \fBConnected Components\fP\&. 
 .PP
-Definition at line 16 of file divide_and_conquer\&.cpp\&.
+Definition at line 10 of file kosaraju_algorithm\&.cpp\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "Graph::Graph (int n_edges)\fC [inline]\fP"
-
-.PP
-This is Constructor for the graph indicating number of edges\&. nodes are vertices and edges are connections\&. This constructor is called for instanciating \fBGraph\fP ### Example 
-.PP
-.nf
-Graph(int n_edges){
-    this->n_edges = n_edges;
-}
-
-.fi
-.PP
- 
-.PP
-\fBParameters:\fP
-.RS 4
-\fIn_edges\fP : number of edges 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-nothing is returned 
-.RE
-.PP
-\fBSee also:\fP
-.RS 4
-get_pred() \fBmain()\fP 
-.RE
-.PP
-\fBNote:\fP
-.RS 4
-This is a constructor of \fBGraph\fP class 
-.RE
-.PP
-\fBAttention:\fP
-.RS 4
-It is required to specify n_edges 
-.RE
-.PP
-\fBWarning:\fP
-.RS 4
-There is another constructor with different type, so argument is crucial to call one constructor\&. 
-.RE
-.PP
-
-.PP
-Definition at line 37 of file divide_and_conquer\&.cpp\&.
-.SS "Graph::Graph (set< int > V1)\fC [inline]\fP"
-
-.PP
-This is Constructor for the graph\&. nodes are vertices and edges are connections\&. This constructor is called first of \fBinsertEdge()\fP ### Example 
-.PP
-.nf
-Graph(set<int> V1){
-    V = V1;
-    n_edges = 0;
-    for(auto x: V){
-        for(auto y: adj[x]){
-            if(V\&.find(y)!=V\&.end()) n_edges++;
-        }
-    }
-}
-
-.fi
-.PP
- 
-.PP
-\fBParameters:\fP
-.RS 4
-\fInV\fP : Number of Vertices 
-.br
-\fInE\fP : Number of Edges 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-nothing is returned 
-.RE
-.PP
-\fBSee also:\fP
-.RS 4
-\fBinsertEdge()\fP \fBmain()\fP 
-.RE
-.PP
-\fBNote:\fP
-.RS 4
-This is a constructor 
-.RE
-.PP
-\fBAttention:\fP
-.RS 4
-This is constructor for the graph 
-.RE
-.PP
-\fBWarning:\fP
-.RS 4
-It is required to specify nV and nE 
-.RE
-.PP
-
-.PP
-Definition at line 64 of file divide_and_conquer\&.cpp\&.
 .SS "Graph::Graph (int nV, int nE)\fC [inline]\fP"
 
 .PP
@@ -285,106 +161,6 @@ DFS is done two times in kosaraju_algorithm and DFS is a recursive function
 
 .PP
 Definition at line 150 of file kosaraju_algorithm\&.cpp\&.
-.SS "set<int> Graph::getDesc (int x)\fC [inline]\fP"
-
-.PP
-This is Constructor for the graph indicating nodes and edges\&. nodes are vertices and edges are connections\&. This constructor is called first of \fBinsertEdge()\fP ### Example 
-.PP
-.nf
-Graph(int nV,int nE) { // constructor
-    this->nV = nV;
-    this->nE = nE;
-}
-
-.fi
-.PP
- 
-.PP
-\fBParameters:\fP
-.RS 4
-\fInV\fP : Number of Vertices 
-.br
-\fInE\fP : Number of Edges 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-nothing is returned 
-.RE
-.PP
-\fBSee also:\fP
-.RS 4
-\fBinsertEdge()\fP \fBmain()\fP 
-.RE
-.PP
-\fBNote:\fP
-.RS 4
-This is a constructor 
-.RE
-.PP
-\fBAttention:\fP
-.RS 4
-This is constructor for the graph 
-.RE
-.PP
-\fBWarning:\fP
-.RS 4
-It is required to specify nV and nE 
-.RE
-.PP
-
-.PP
-Definition at line 132 of file divide_and_conquer\&.cpp\&.
-.SS "set<int> Graph::getPred (int x)\fC [inline]\fP"
-
-.PP
-This is Constructor for the graph indicating nodes and edges\&. nodes are vertices and edges are connections\&. This constructor is called first of \fBinsertEdge()\fP ### Example 
-.PP
-.nf
-Graph(int nV,int nE) { // constructor
-    this->nV = nV;
-    this->nE = nE;
-}
-
-.fi
-.PP
- 
-.PP
-\fBParameters:\fP
-.RS 4
-\fInV\fP : Number of Vertices 
-.br
-\fInE\fP : Number of Edges 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-nothing is returned 
-.RE
-.PP
-\fBSee also:\fP
-.RS 4
-\fBinsertEdge()\fP \fBmain()\fP 
-.RE
-.PP
-\fBNote:\fP
-.RS 4
-This is a constructor 
-.RE
-.PP
-\fBAttention:\fP
-.RS 4
-This is constructor for the graph 
-.RE
-.PP
-\fBWarning:\fP
-.RS 4
-It is required to specify nV and nE 
-.RE
-.PP
-
-.PP
-Definition at line 92 of file divide_and_conquer\&.cpp\&.
 .SS "void Graph::insertEdge (int a, int b)\fC [inline]\fP"
 
 .PP
@@ -528,10 +304,6 @@ Definition at line 13 of file kosaraju_algorithm\&.cpp\&.
 
 .PP
 Definition at line 15 of file kosaraju_algorithm\&.cpp\&.
-.SS "int Graph::n_edges"
-
-.PP
-Definition at line 18 of file divide_and_conquer\&.cpp\&.
 .SS "int Graph::nE"
 
 .PP
@@ -544,10 +316,6 @@ Definition at line 12 of file kosaraju_algorithm\&.cpp\&.
 
 .PP
 Definition at line 17 of file kosaraju_algorithm\&.cpp\&.
-.SS "set<int> Graph::V"
-
-.PP
-Definition at line 19 of file divide_and_conquer\&.cpp\&.
 .SS "set<int,greater<int> > Graph::vertices"
 
 .PP

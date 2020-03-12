@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['kosaraju_20algorithm',['Kosaraju Algorithm',['../index.html',1,'']]],
-  ['kosaraju_5falgorithm_2ecpp',['kosaraju_algorithm.cpp',['../df/d98/kosaraju__algorithm_8cpp.html',1,'']]]
+  ['insertedge',['insertEdge',['../da/d9a/class_graph.html#a1c3af1a9af40a59bf927127d8b2de800',1,'Graph']]]
 ];

@@ -13,39 +13,39 @@ using namespace std;
 unordered_map<int, list<int> > adj;
 unordered_map<int, list<int> > rev_adj;
 
-class Graph{
+class Graph1{
 	public:
 	int n_edges;
 	set<int> V;
 
-	/// This is a constructor for the Graph class.
+	/// This is a constructor for the Graph1 class.
 	///	It is called by passing the number of edges as argument.
 	///
 	/// ### Example
 	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
-	/// Graph(int n_edges){
+	/// Graph1(int n_edges){
 	/// 	this->n_edges = n_edges;
 	/// }
 	/// ~~~~~~~~~~~~~~~~~~~~~~
 	/// @param n_edges : number of edges
 	/// @returns nothing is returned
 	/// @see getPred() getDesc()  main()
-	/// @note This is a constructor of Graph class
+	/// @note This is a constructor of Graph1 class
 	/// @attention It is required to specify n_edges
 	/// @warning There is another constructor with different type, so argument is crucial to call one constructor.
 
-	Graph(int n_edges){
+	Graph1(int n_edges){
 		this->n_edges = n_edges;
 	}
 
-	/// This is a Constructor for the graph class.
+	/// This is a Constructor for the Graph1 class.
 	/// This constructor is called by passing a list of vertices as argument.
-	/// It creates a subgraph of the Graph specified by adj (adjacency list) using 
+	/// It creates a subGraph1 of the Graph1 specified by adj (adjacency list) using 
 	/// a subset of vertices.
 	///
 	/// ### Example
 	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
-	///	Graph(set<int> V1){
+	///	Graph1(set<int> V1){
 	/// 	V = V1;
 	/// 	n_edges = 0;
 	/// 	for(auto x: V){
@@ -59,10 +59,10 @@ class Graph{
 	/// @returns nothing is returned
 	/// @see main()
 	/// @note This is a constructor
-	/// @attention This is constructor for the graph
+	/// @attention This is constructor for the Graph1
 	/// @warning It is required to specify V1
 
-	Graph(set<int> V1){
+	Graph1(set<int> V1){
 		V = V1;
 		n_edges = 0;
 		for(auto x: V){
@@ -150,11 +150,11 @@ class Graph{
 /// 		DCSC(Desc(G, v) \ SCC)
 /// 		DCSC(Rem(G, v))
 /// ~~~~~~~~~~~~~~~~~~~~~~
-/// @param g : Graph on which the algorithm is to be applied
+/// @param g : Graph1 on which the algorithm is to be applied
 /// @returns nothing is returned
 /// @see getPred() getDesc()  main()
 
-void DCSC(Graph g){
+void DCSC(Graph1 g){
 	if(g.n_edges == 0){
 		for(int i:g.V) cout << i << "\n";
 	}else{
@@ -171,26 +171,26 @@ void DCSC(Graph g){
 
 		set<int> a;
 		set_difference(pred.begin(), pred.end(), SCC.begin(), SCC.end(), inserter(a, a.begin()));
-		Graph g1 = Graph(a);
+		Graph1 g1 = Graph1(a);
 		DCSC(g1);
 
 		set<int> b;
 		set_difference(desc.begin(), desc.end(), SCC.begin(), SCC.end(), inserter(b, b.begin()));
-		Graph g2 = Graph(b);
+		Graph1 g2 = Graph1(b);
 		DCSC(g2);
 
 		set<int> rem;	
 		pred.insert(desc.begin(), desc.end());
 		set_difference(g.V.begin(), g.V.end(), pred.begin(), pred.end(), inserter(rem, rem.begin()));
-		Graph g3 = Graph(rem);
+		Graph1 g3 = Graph1(rem);
 		DCSC(g3);
 	}
 
 }
 
 /// This is the main function of this c++ program.
-///	A graph object is created using data from input and 
-/// the function DCSC is called on this graph.
+///	A Graph1 object is created using data from input and 
+/// the function DCSC is called on this Graph1.
 ///
 /// 
 /// @returns int
@@ -208,7 +208,7 @@ int main(){
 
 	int v, e; cin >> v >> e;
 
-	Graph g = Graph(e);
+	Graph1 g = Graph1(e);
 	set<int> V;
 
 	for(int i=0; i<e; i++){

@@ -1,0 +1,229 @@
+.TH "Graph1" 3 "Thu Mar 12 2020" "Version 1" "DAA Assignment - 1" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Graph1
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGraph1\fP (int \fBn_edges\fP)"
+.br
+.RI "This is a constructor for the \fBGraph1\fP class\&. "
+.ti -1c
+.RI "\fBGraph1\fP (set< int > V1)"
+.br
+.RI "This is a Constructor for the \fBGraph1\fP class\&. "
+.ti -1c
+.RI "set< int > \fBgetPred\fP (int x)"
+.br
+.RI "This is a function that runs Breadth first search starting from the node passed as argument, to find all of its predecessors\&. "
+.ti -1c
+.RI "set< int > \fBgetDesc\fP (int x)"
+.br
+.RI "This is a function that runs Breadth first search starting from the node passed as argument, to find all of its descendents\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBn_edges\fP"
+.br
+.ti -1c
+.RI "set< int > \fBV\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 16 of file divide_and_conquer\&.cpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Graph1::Graph1 (int n_edges)\fC [inline]\fP"
+
+.PP
+This is a constructor for the \fBGraph1\fP class\&. It is called by passing the number of edges as argument\&.
+.PP
+### Example 
+.PP
+.nf
+Graph1(int n_edges){
+    this->n_edges = n_edges;
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn_edges\fP : number of edges 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+nothing is returned 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetPred()\fP \fBgetDesc()\fP \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This is a constructor of \fBGraph1\fP class 
+.RE
+.PP
+\fBAttention:\fP
+.RS 4
+It is required to specify n_edges 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+There is another constructor with different type, so argument is crucial to call one constructor\&. 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file divide_and_conquer\&.cpp\&.
+.SS "Graph1::Graph1 (set< int > V1)\fC [inline]\fP"
+
+.PP
+This is a Constructor for the \fBGraph1\fP class\&. This constructor is called by passing a list of vertices as argument\&. It creates a subGraph1 of the \fBGraph1\fP specified by adj (adjacency list) using a subset of vertices\&.
+.PP
+### Example 
+.PP
+.nf
+Graph1(set<int> V1){
+    V = V1;
+    n_edges = 0;
+    for(auto x: V){
+        for(auto y: adj[x]){
+            if(V\&.find(y)!=V\&.end()) n_edges++;
+        }
+    }
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIV1\fP : set of vertices 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+nothing is returned 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This is a constructor 
+.RE
+.PP
+\fBAttention:\fP
+.RS 4
+This is constructor for the \fBGraph1\fP 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+It is required to specify V1 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file divide_and_conquer\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "set<int> Graph1::getDesc (int x)\fC [inline]\fP"
+
+.PP
+This is a function that runs Breadth first search starting from the node passed as argument, to find all of its descendents\&. It uses the original adjacency matrix in its bfs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP : node for which descendents are required 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+s: set of descendent nodes 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetPred()\fP \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This is a method 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+It is required to specify x 
+.RE
+.PP
+
+.PP
+Definition at line 117 of file divide_and_conquer\&.cpp\&.
+.SS "set<int> Graph1::getPred (int x)\fC [inline]\fP"
+
+.PP
+This is a function that runs Breadth first search starting from the node passed as argument, to find all of its predecessors\&. It uses the transpose of the original adjacency matrix\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP : node for which predecessors are required 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+s: set of predecessor nodes 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetDesc()\fP \fBmain()\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This is a method 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+It is required to specify x 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file divide_and_conquer\&.cpp\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "int Graph1::n_edges"
+
+.PP
+Definition at line 18 of file divide_and_conquer\&.cpp\&.
+.SS "set<int> Graph1::V"
+
+.PP
+Definition at line 19 of file divide_and_conquer\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DAA Assignment - 1 from the source code\&.

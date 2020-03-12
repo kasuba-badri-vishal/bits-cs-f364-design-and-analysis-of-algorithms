@@ -1,7 +1,7 @@
 var NAVTREE =
 [
   [ "DAA Assignment - 1", "index.html", [
-    [ "Kosaraju Algorithm", "index.html", null ],
+    [ "Kosaraju Algorithm and Divide and Conquer Algorithm", "index.html", null ],
     [ "This is a mark down file", "d9/d07/md_doc_doc_pages_page_one.html", null ],
     [ "Strongly Connected Components", "d9/d07/subsystem1.html", "d9/d07/subsystem1" ],
     [ "Namespaces", null, [

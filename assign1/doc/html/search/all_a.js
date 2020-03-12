@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['page_5fone_2emd',['page_one.md',['../d3/d33/page__one_8md.html',1,'']]]
+  ['options',['options',['../d8/d96/namespacegraphing.html#a60ef41207a46d35d62084d960125efa6',1,'graphing']]]
 ];

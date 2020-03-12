@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['subsubsystem_201',['SubSubSystem 1',['../d4/dc1/subsubsystem1.html',1,'subsystem1']]],
-  ['subsubsystem1_2emd',['subsubsystem1.md',['../d3/d32/subsubsystem1_8md.html',1,'']]],
-  ['strongly_20connected_20components',['Strongly Connected Components',['../d9/d07/subsystem1.html',1,'']]],
-  ['subsystem1_2emd',['subsystem1.md',['../dd/dda/subsystem1_8md.html',1,'']]]
+  ['rev_5fadj',['rev_adj',['../da/dbe/divide__and__conquer_8cpp.html#a69bc3a835bcd545e9f495f21e61930c2',1,'divide_and_conquer.cpp']]],
+  ['reversegraph',['reverseGraph',['../da/d9a/class_graph.html#a772b16268934a7eeabb6b62b33a6bb61',1,'Graph']]]
 ];

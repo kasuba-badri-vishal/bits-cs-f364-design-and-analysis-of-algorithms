@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['getdesc',['getDesc',['../da/d9a/class_graph.html#a52aeec9dd8483ffb76ea71d62077e573',1,'Graph']]],
-  ['getpred',['getPred',['../da/d9a/class_graph.html#a9702343d415e21aac67a4c7b5a4e28d0',1,'Graph']]],
-  ['graph',['Graph',['../da/d9a/class_graph.html#a9d804e9cb0ba18fcc9c6d5b32fd7051c',1,'Graph::Graph(int n_edges)'],['../da/d9a/class_graph.html#a782cfef0f6dafab7afd8fd9ddf711c70',1,'Graph::Graph(set&lt; int &gt; V1)'],['../da/d9a/class_graph.html#a5fdcee7e1d60eace32a7d8d8f12cd1a5',1,'Graph::Graph(int nV, int nE)']]]
+  ['getdesc',['getDesc',['../d6/d3f/class_graph1.html#a4024b25f884a9dfcd4331ca6484fe583',1,'Graph1']]],
+  ['getpred',['getPred',['../d6/d3f/class_graph1.html#a489c936fe99283768059c9cf7ff2caa9',1,'Graph1']]],
+  ['graph',['Graph',['../da/d9a/class_graph.html#a5fdcee7e1d60eace32a7d8d8f12cd1a5',1,'Graph']]],
+  ['graph1',['Graph1',['../d6/d3f/class_graph1.html#a114055b9e415e392346ce0cb40e3f132',1,'Graph1::Graph1(int n_edges)'],['../d6/d3f/class_graph1.html#a8dfcf5bbf1c869949751d69beaaad98f',1,'Graph1::Graph1(set&lt; int &gt; V1)']]]
 ];

@@ -1,4 +1,4 @@
-.TH "src/graphing.py" 3 "Wed Mar 11 2020" "Version 1" "DAA Assignment - 1" \" -*- nroff -*-
+.TH "src/graphing.py" 3 "Thu Mar 12 2020" "Version 1" "DAA Assignment - 1" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -17,6 +17,9 @@ src/graphing.py
 
 .in +1c
 .ti -1c
+.RI "\fBgraphing\&.dataset_name\fP = sys\&.argv[1]\&.split('/')[\-1][:\-4]"
+.br
+.ti -1c
 .RI "\fBgraphing\&.DG\fP = nx\&.DiGraph()"
 .br
 .ti -1c
@@ -26,13 +29,40 @@ src/graphing.py
 .RI "\fBgraphing\&.e\fP"
 .br
 .ti -1c
+.RI "\fBgraphing\&.line\fP = edges_file\&.readline()"
+.br
+.ti -1c
 .RI "\fBgraphing\&.x\fP"
 .br
 .ti -1c
 .RI "\fBgraphing\&.y\fP"
 .br
 .ti -1c
+.RI "\fBgraphing\&.shape\fP = nx\&.spring_layout(DG)"
+.br
+.ti -1c
 .RI "dictionary \fBgraphing\&.options\fP"
+.br
+.ti -1c
+.RI "\fBgraphing\&.comp_graph\fP = nx\&.DiGraph()"
+.br
+.ti -1c
+.RI "\fBgraphing\&.colors\fP = np\&.array([])"
+.br
+.ti -1c
+.RI "int \fBgraphing\&.c\fP = 0"
+.br
+.ti -1c
+.RI "\fBgraphing\&.s\fP = scc\&.readlines()"
+.br
+.ti -1c
+.RI "\fBgraphing\&.V\fP = list(map(int, line\&.split()))"
+.br
+.ti -1c
+.RI "\fBgraphing\&.sub\fP = DG\&.subgraph(V)"
+.br
+.ti -1c
+.RI "\fBgraphing\&.labels\fP = dict(zip(comp_graph\&.nodes, list(map(str, comp_graph\&.nodes))))"
 .br
 .in -1c
 .SH "Author"

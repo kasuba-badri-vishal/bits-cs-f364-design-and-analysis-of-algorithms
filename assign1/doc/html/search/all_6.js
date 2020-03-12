@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ll',['ll',['../da/dbe/divide__and__conquer_8cpp.html#ae1d1ec9482079231e898236e2b23c9ba',1,'divide_and_conquer.cpp']]]
+  ['kosaraju_20algorithm_20and_20divide_20and_20conquer_20algorithm',['Kosaraju Algorithm and Divide and Conquer Algorithm',['../index.html',1,'']]],
+  ['kosaraju_5falgorithm_2ecpp',['kosaraju_algorithm.cpp',['../df/d98/kosaraju__algorithm_8cpp.html',1,'']]]
 ];
