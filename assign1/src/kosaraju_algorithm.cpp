@@ -18,7 +18,7 @@ public:
 
 	/// This is Constructor for the graph indicating nodes and edges
 	///
-	/// nodes are vertices and edges are connections. This constructor is called first of insertEdge()
+	/// This constructor is called before calling insertEdge() function
 	/// ### Example
 	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
 	/// Graph(int nV,int nE) { // constructor
@@ -42,8 +42,8 @@ public:
 
 	/// This is a method inside the *Graph class* for the graph indicating insertion of edges
 	///
-	/// nodes are vertices and edges are connections. This method is called after Graph() constructor is called.
-	/// ### Example
+	/// This method is called after Graph() constructor is called.
+	/// ### Function insertEdge
 	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
 	/// void insertEdge(int a,int b){
 	/// 	adj[a].push_back(b); //lists are only for those which have outgoing edges
@@ -95,8 +95,8 @@ public:
 
 	/// This is a method inside Graph Class which does sorts vertices inside graph using topological sorting
 	/// based on vertices if they are visited or not and push them onto the stack *Top_order*
-	/// nodes are vertices and edges are connections. This is similar to insertEdge()
-	/// ### Example
+	/// This is similar to insertEdge()
+	/// ### Topological Sort function
 	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
 	/// void topological_sort(int vertex){
 	/// 	visited.insert(vertex); // insert element into set of visited vertices
@@ -129,7 +129,7 @@ public:
 	/// This is a method inside Graph Class which does *Depth First Search* on the Graph
 	///
 	/// We traverse 
-	/// ### Example
+	/// ### DFS function
 	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
 	/// void DFS(int vertex){
 	/// 	cout<<vertex << " ";
