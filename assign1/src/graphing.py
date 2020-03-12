@@ -32,7 +32,7 @@ options = {
 }
 nx.draw(DG, **options)
 plt.title(dataset_name)
-plt.savefig(f"results/graphs/{dataset_name}.png")
+plt.savefig(f"../results/graphs/{dataset_name}.png")
 # plt.show()
 
 '''
@@ -54,16 +54,23 @@ with open(sys.argv[2]) as scc:
         comp_graph = nx.union(comp_graph, sub)
 
 shape = nx.spring_layout(comp_graph)
+labels = dict(zip(comp_graph.nodes, list(map(str, comp_graph.nodes))))
 options = {
-    'node_size': 20,
-    'width': 0.1,
+    # 'node_size': 80,
+    'node_size': 100,
+    # 'width': 0.2,
+    'width': 1,
+    'font_size':10,
     'edge_color': '#333333',
     'alpha':0.5,
     "node_color":colors,
     'pos':shape,
-    'cmap':'jet'
+    'cmap':'jet',
+    'labels':labels   
 }
+
+
 plt.figure()
-nx.draw(comp_graph, **options)
-plt.savefig(f"results/graphs/{dataset_name}_comp.png")
+nx.draw(comp_graph,  **options)
+plt.savefig(f"../results/graphs/{dataset_name}_comp.png")
 # plt.show()

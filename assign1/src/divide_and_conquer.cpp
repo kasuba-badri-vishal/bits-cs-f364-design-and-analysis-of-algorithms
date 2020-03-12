@@ -6,9 +6,9 @@ using namespace std;
 #define N 1000
 #define ll long long
 
-/// This Program is the Implementation of **Divide_and_Conquer Algorithm** defined in the research paper.
+/// This Program is the Implementation of **Divide_and_Conquer Algorithm** presented in the research paper.
 ///
-/// We use DCSC, predecesser,descendent methods to find the **Connected Components**.
+/// We use DCSC, predecesser,descendent methods to find the **Stroingly Connected Components**.
 
 unordered_map<int, list<int> > adj;
 unordered_map<int, list<int> > rev_adj;
@@ -18,9 +18,9 @@ class Graph{
 	int n_edges;
 	set<int> V;
 
-	/// This is Constructor for the graph indicating number of edges
+	/// This is a constructor for the Graph class.
+	///	It is called by passing the number of edges as argument.
 	///
-	/// nodes are vertices and edges are connections. This constructor is called for instanciating Graph
 	/// ### Example
 	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
 	/// Graph(int n_edges){
@@ -29,7 +29,7 @@ class Graph{
 	/// ~~~~~~~~~~~~~~~~~~~~~~
 	/// @param n_edges : number of edges
 	/// @returns nothing is returned
-	/// @see get_pred()  main()
+	/// @see getPred() getDesc()  main()
 	/// @note This is a constructor of Graph class
 	/// @attention It is required to specify n_edges
 	/// @warning There is another constructor with different type, so argument is crucial to call one constructor.
@@ -38,9 +38,11 @@ class Graph{
 		this->n_edges = n_edges;
 	}
 
-	/// This is Constructor for the graph 
+	/// This is a Constructor for the graph class.
+	/// This constructor is called by passing a list of vertices as argument.
+	/// It creates a subgraph of the Graph specified by adj (adjacency list) using 
+	/// a subset of vertices.
 	///
-	/// nodes are vertices and edges are connections. This constructor is called first of insertEdge()
 	/// ### Example
 	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
 	///	Graph(set<int> V1){
@@ -53,13 +55,12 @@ class Graph{
 	/// 	}
 	/// }
 	/// ~~~~~~~~~~~~~~~~~~~~~~
-	/// @param nV : Number of Vertices
-	/// @param nE : Number of Edges
+	/// @param V1 : set of vertices
 	/// @returns nothing is returned
-	/// @see insertEdge()  main()
+	/// @see main()
 	/// @note This is a constructor
 	/// @attention This is constructor for the graph
-	/// @warning It is required to specify nV and nE
+	/// @warning It is required to specify V1
 
 	Graph(set<int> V1){
 		V = V1;
@@ -71,23 +72,15 @@ class Graph{
 		}
 	}
 
-	/// This is Constructor for the graph indicating nodes and edges
+	/// This is a function that runs Breadth first search starting 
+	/// from the node passed as argument, to find all of its predecessors.
+	///	It uses the transpose of the original adjacency matrix.
 	///
-	/// nodes are vertices and edges are connections. This constructor is called first of insertEdge()
-	/// ### Example
-	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
-	/// Graph(int nV,int nE) { // constructor
-	/// 	this->nV = nV;
-	///		this->nE = nE;
-	/// }
-	/// ~~~~~~~~~~~~~~~~~~~~~~
-	/// @param nV : Number of Vertices
-	/// @param nE : Number of Edges
-	/// @returns nothing is returned
-	/// @see insertEdge()  main()
-	/// @note This is a constructor
-	/// @attention This is constructor for the graph
-	/// @warning It is required to specify nV and nE
+	/// @param x : node for which predecessors are required
+	/// @returns s: set of predecessor nodes
+	/// @see getDesc()  main()
+	/// @note This is a method
+	/// @warning It is required to specify x
 
 	set<int> getPred(int x){
 		queue<int> q; 
@@ -111,23 +104,15 @@ class Graph{
 		return s;
 	}
 
-	/// This is Constructor for the graph indicating nodes and edges
+	/// This is a function that runs Breadth first search starting 
+	/// from the node passed as argument, to find all of its descendents.
+	///	It uses the original adjacency matrix in its bfs.
 	///
-	/// nodes are vertices and edges are connections. This constructor is called first of insertEdge()
-	/// ### Example
-	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
-	/// Graph(int nV,int nE) { // constructor
-	/// 	this->nV = nV;
-	///		this->nE = nE;
-	/// }
-	/// ~~~~~~~~~~~~~~~~~~~~~~
-	/// @param nV : Number of Vertices
-	/// @param nE : Number of Edges
-	/// @returns nothing is returned
-	/// @see insertEdge()  main()
-	/// @note This is a constructor
-	/// @attention This is constructor for the graph
-	/// @warning It is required to specify nV and nE
+	/// @param x : node for which descendents are required
+	/// @returns s: set of descendent nodes
+	/// @see getPred()  main()
+	/// @note This is a method
+	/// @warning It is required to specify x
 
 	set<int> getDesc(int x){
 		queue<int> q; 
@@ -150,22 +135,24 @@ class Graph{
 };
 
 
-/// This is Constructor for the graph indicating nodes and edges
+/// This is the core function of the Divide and Conquer Algorithm to find Strongly Connected Components.
 ///
-/// nodes are vertices and edges are connections. This constructor is called first of insertEdge()
-/// ### Example
-/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
-/// Graph(int nV,int nE) { // constructor
-/// 	this->nV = nV;
-///		this->nE = nE;
-/// }
+/// ### Algorithm
 /// ~~~~~~~~~~~~~~~~~~~~~~
-/// @param nV : Number of Vertices
-/// @param nE : Number of Edges
+/// DCSC(G)
+/// 	If G has no edges then
+/// 		forall v in V Output {v}.
+/// 	Else
+/// 		Select a random vertex v from V
+/// 		SCC <- Pred(G, v) \ Desc(G, v)
+/// 		Output SCC
+/// 		DCSC(Pred(G, v) \ SCC)
+/// 		DCSC(Desc(G, v) \ SCC)
+/// 		DCSC(Rem(G, v))
+/// ~~~~~~~~~~~~~~~~~~~~~~
+/// @param g : Graph on which the algorithm is to be applied
 /// @returns nothing is returned
-/// @see insertEdge()  main()
-/// @note This is a constructor
-/// @attention This is constructor for the graph
+/// @see getPred() getDesc()  main()
 
 void DCSC(Graph g){
 	if(g.n_edges == 0){
@@ -201,23 +188,14 @@ void DCSC(Graph g){
 
 }
 
-/// This is Constructor for the graph indicating nodes and edges
+/// This is the main function of this c++ program.
+///	A graph object is created using data from input and 
+/// the function DCSC is called on this graph.
 ///
-/// nodes are vertices and edges are connections. This constructor is called first of insertEdge()
-/// ### Example
-/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
-/// Graph(int nV,int nE) { // constructor
-/// 	this->nV = nV;
-///		this->nE = nE;
-/// }
-/// ~~~~~~~~~~~~~~~~~~~~~~
-/// @param nV : Number of Vertices
-/// @param nE : Number of Edges
-/// @returns nothing is returned
-/// @see insertEdge()  main()
-/// @note This is a constructor
-/// @attention This is constructor for the graph
-/// @warning It is required to specify nV and nE
+/// 
+/// @returns int
+/// @see DCSC()
+/// @note This is the main function
 
 int main(){
 	/* uncomment the lines below and <sys.resource.h> 
