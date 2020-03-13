@@ -1,0 +1,206 @@
+\hypertarget{class_graph1}{}\doxysection{Graph1 Class Reference}
+\label{class_graph1}\index{Graph1@{Graph1}}
+
+
+This program is the Implementation of {\bfseries{Divide\+\_\+and\+\_\+\+Conquer Algorithm}} presented in the research paper.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph1_a114055b9e415e392346ce0cb40e3f132}{Graph1}} (int \mbox{\hyperlink{class_graph1_afa15ab16429a5aa082ff44e4f115371a}{n\+\_\+edges}})
+\begin{DoxyCompactList}\small\item\em This is a constructor for the \mbox{\hyperlink{class_graph1}{Graph1}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph1_a8dfcf5bbf1c869949751d69beaaad98f}{Graph1}} (set$<$ int $>$ V1)
+\begin{DoxyCompactList}\small\item\em This is a Constructor for the \mbox{\hyperlink{class_graph1}{Graph1}} class. \end{DoxyCompactList}\item 
+set$<$ int $>$ \mbox{\hyperlink{class_graph1_a489c936fe99283768059c9cf7ff2caa9}{get\+Pred}} (int x)
+\begin{DoxyCompactList}\small\item\em This is a function that runs Breadth first search starting from the node passed as argument, to find all of its predecessors. \end{DoxyCompactList}\item 
+set$<$ int $>$ \mbox{\hyperlink{class_graph1_a4024b25f884a9dfcd4331ca6484fe583}{get\+Desc}} (int x)
+\begin{DoxyCompactList}\small\item\em This is a function that runs Breadth first search starting from the node passed as argument, to find all of its descendents. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_graph1_afa15ab16429a5aa082ff44e4f115371a}{n\+\_\+edges}}
+\begin{DoxyCompactList}\small\item\em number of edges \end{DoxyCompactList}\item 
+set$<$ int $>$ \mbox{\hyperlink{class_graph1_a37c84733f26a610da139ce761a8a9b13}{V}}
+\begin{DoxyCompactList}\small\item\em set of vertices \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This program is the Implementation of {\bfseries{Divide\+\_\+and\+\_\+\+Conquer Algorithm}} presented in the research paper. 
+
+We use D\+C\+SC, predecesser,descendent methods to find the {\bfseries{Strongly Connected Components}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graph1_a114055b9e415e392346ce0cb40e3f132}\label{class_graph1_a114055b9e415e392346ce0cb40e3f132}} 
+\index{Graph1@{Graph1}!Graph1@{Graph1}}
+\index{Graph1@{Graph1}!Graph1@{Graph1}}
+\doxysubsubsection{\texorpdfstring{Graph1()}{Graph1()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Graph1\+::\+Graph1 (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+edges }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is a constructor for the \mbox{\hyperlink{class_graph1}{Graph1}} class. 
+
+It is called by passing the number of edges as argument.\hypertarget{class_graph1_autotoc_md1}{}\doxyparagraph{Constructor}\label{class_graph1_autotoc_md1}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_graph1_a114055b9e415e392346ce0cb40e3f132}{Graph1}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_graph1_afa15ab16429a5aa082ff44e4f115371a}{n\_edges}})\{}
+\DoxyCodeLine{    this-\/>n\_edges = \mbox{\hyperlink{class_graph1_afa15ab16429a5aa082ff44e4f115371a}{n\_edges}};}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+edges} & \+: number of edges \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing is returned 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_graph1_a489c936fe99283768059c9cf7ff2caa9}{get\+Pred()}} \mbox{\hyperlink{class_graph1_a4024b25f884a9dfcd4331ca6484fe583}{get\+Desc()}} \mbox{\hyperlink{divide__and__conquer_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This is a constructor of \mbox{\hyperlink{class_graph1}{Graph1}} class 
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+It is required to specify n\+\_\+edges 
+\end{DoxyAttention}
+\begin{DoxyWarning}{Warning}
+There is another constructor with different type, so argument is crucial to call one constructor. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{class_graph1_a8dfcf5bbf1c869949751d69beaaad98f}\label{class_graph1_a8dfcf5bbf1c869949751d69beaaad98f}} 
+\index{Graph1@{Graph1}!Graph1@{Graph1}}
+\index{Graph1@{Graph1}!Graph1@{Graph1}}
+\doxysubsubsection{\texorpdfstring{Graph1()}{Graph1()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Graph1\+::\+Graph1 (\begin{DoxyParamCaption}\item[{set$<$ int $>$}]{V1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is a Constructor for the \mbox{\hyperlink{class_graph1}{Graph1}} class. 
+
+This constructor is called by passing a list of vertices as argument. It creates a sub\+Graph1 of the \mbox{\hyperlink{class_graph1}{Graph1}} specified by adj (adjacency list) using a subset of vertices.\hypertarget{class_graph1_autotoc_md2}{}\doxyparagraph{Example}\label{class_graph1_autotoc_md2}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_graph1_a114055b9e415e392346ce0cb40e3f132}{Graph1}}(set<int> V1)\{}
+\DoxyCodeLine{    \mbox{\hyperlink{class_graph1_a37c84733f26a610da139ce761a8a9b13}{V}} = V1;}
+\DoxyCodeLine{    \mbox{\hyperlink{class_graph1_afa15ab16429a5aa082ff44e4f115371a}{n\_edges}} = 0;}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} \mbox{\hyperlink{namespacegraphing_a9eb1617a2c0704af96be73b103b0fc38}{x}}: \mbox{\hyperlink{class_graph1_a37c84733f26a610da139ce761a8a9b13}{V}})\{}
+\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} \mbox{\hyperlink{namespacegraphing_a56adf673f3887f674fbda6c14604a1d0}{y}}: \mbox{\hyperlink{divide__and__conquer_8cpp_aa60d17a9a8198654b4ffd7eee3d260e3}{adj}}[\mbox{\hyperlink{namespacegraphing_a9eb1617a2c0704af96be73b103b0fc38}{x}}])\{}
+\DoxyCodeLine{            \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_graph1_a37c84733f26a610da139ce761a8a9b13}{V}}.find(\mbox{\hyperlink{namespacegraphing_a56adf673f3887f674fbda6c14604a1d0}{y}})!=\mbox{\hyperlink{class_graph1_a37c84733f26a610da139ce761a8a9b13}{V}}.end()) \mbox{\hyperlink{class_graph1_afa15ab16429a5aa082ff44e4f115371a}{n\_edges}}++;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em V1} & \+: set of vertices \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing is returned 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{divide__and__conquer_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This is a constructor 
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+This is constructor for the \mbox{\hyperlink{class_graph1}{Graph1}} 
+\end{DoxyAttention}
+\begin{DoxyWarning}{Warning}
+It is required to specify V1 
+\end{DoxyWarning}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph1_a4024b25f884a9dfcd4331ca6484fe583}\label{class_graph1_a4024b25f884a9dfcd4331ca6484fe583}} 
+\index{Graph1@{Graph1}!getDesc@{getDesc}}
+\index{getDesc@{getDesc}!Graph1@{Graph1}}
+\doxysubsubsection{\texorpdfstring{getDesc()}{getDesc()}}
+{\footnotesize\ttfamily set$<$int$>$ Graph1\+::get\+Desc (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is a function that runs Breadth first search starting from the node passed as argument, to find all of its descendents. 
+
+It uses the original adjacency matrix in its bfs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \+: node for which descendents are required \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+s\+: set of descendent nodes 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_graph1_a489c936fe99283768059c9cf7ff2caa9}{get\+Pred()}} \mbox{\hyperlink{divide__and__conquer_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This is a method 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+It is required to specify x 
+\end{DoxyWarning}
+\mbox{\Hypertarget{class_graph1_a489c936fe99283768059c9cf7ff2caa9}\label{class_graph1_a489c936fe99283768059c9cf7ff2caa9}} 
+\index{Graph1@{Graph1}!getPred@{getPred}}
+\index{getPred@{getPred}!Graph1@{Graph1}}
+\doxysubsubsection{\texorpdfstring{getPred()}{getPred()}}
+{\footnotesize\ttfamily set$<$int$>$ Graph1\+::get\+Pred (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is a function that runs Breadth first search starting from the node passed as argument, to find all of its predecessors. 
+
+It uses the transpose of the original adjacency matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \+: node for which predecessors are required \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+s\+: set of predecessor nodes 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_graph1_a4024b25f884a9dfcd4331ca6484fe583}{get\+Desc()}} \mbox{\hyperlink{divide__and__conquer_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This is a method 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+It is required to specify x 
+\end{DoxyWarning}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_graph1_afa15ab16429a5aa082ff44e4f115371a}\label{class_graph1_afa15ab16429a5aa082ff44e4f115371a}} 
+\index{Graph1@{Graph1}!n\_edges@{n\_edges}}
+\index{n\_edges@{n\_edges}!Graph1@{Graph1}}
+\doxysubsubsection{\texorpdfstring{n\_edges}{n\_edges}}
+{\footnotesize\ttfamily int Graph1\+::n\+\_\+edges}
+
+
+
+number of edges 
+
+\mbox{\Hypertarget{class_graph1_a37c84733f26a610da139ce761a8a9b13}\label{class_graph1_a37c84733f26a610da139ce761a8a9b13}} 
+\index{Graph1@{Graph1}!V@{V}}
+\index{V@{V}!Graph1@{Graph1}}
+\doxysubsubsection{\texorpdfstring{V}{V}}
+{\footnotesize\ttfamily set$<$int$>$ Graph1\+::V}
+
+
+
+set of vertices 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Projects/\+D\+A\+A\+\_\+\+Assignments/assign1/src/\mbox{\hyperlink{divide__and__conquer_8cpp}{divide\+\_\+and\+\_\+conquer.\+cpp}}\end{DoxyCompactItemize}

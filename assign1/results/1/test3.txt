@@ -1,0 +1,7 @@
+
+Connnected Components are :
+5 4 3 2 1 
+10 9 8 7 
+13 12 11 
+6 
+Time taken: 7

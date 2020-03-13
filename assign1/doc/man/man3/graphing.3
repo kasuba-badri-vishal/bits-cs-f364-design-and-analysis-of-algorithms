@@ -1,4 +1,4 @@
-.TH "graphing" 3 "Thu Mar 12 2020" "Version 1" "DAA Assignment - 1" \" -*- nroff -*-
+.TH "graphing" 3 "Fri Mar 13 2020" "DAA Assignment 1" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -37,6 +37,9 @@ graphing
 .RI "dictionary \fBoptions\fP"
 .br
 .ti -1c
+.RI "\fBpos\fP"
+.br
+.ti -1c
 .RI "\fBcomp_graph\fP = nx\&.DiGraph()"
 .br
 .ti -1c
@@ -55,43 +58,32 @@ graphing
 .RI "\fBsub\fP = DG\&.subgraph(\fBV\fP)"
 .br
 .ti -1c
-.RI "\fBlabels\fP = dict(zip(comp_graph\&.nodes, list(map(str, comp_graph\&.nodes))))"
+.RI "\fBcmap\fP"
+.br
+.ti -1c
+.RI "\fBnode_color\fP"
 .br
 .in -1c
 .SH "Variable Documentation"
 .PP 
 .SS "int graphing\&.c = 0"
 
-.PP
-Definition at line 44 of file graphing\&.py\&.
+.SS "graphing\&.cmap"
+
 .SS "graphing\&.colors = np\&.array([])"
 
-.PP
-Definition at line 43 of file graphing\&.py\&.
 .SS "graphing\&.comp_graph = nx\&.DiGraph()"
 
-.PP
-Definition at line 42 of file graphing\&.py\&.
 .SS "graphing\&.dataset_name = sys\&.argv[1]\&.split('/')[\-1][:\-4]"
 
-.PP
-Definition at line 10 of file graphing\&.py\&.
 .SS "graphing\&.DG = nx\&.DiGraph()"
 
-.PP
-Definition at line 13 of file graphing\&.py\&.
 .SS "graphing\&.e"
 
-.PP
-Definition at line 17 of file graphing\&.py\&.
-.SS "graphing\&.labels = dict(zip(comp_graph\&.nodes, list(map(str, comp_graph\&.nodes))))"
-
-.PP
-Definition at line 57 of file graphing\&.py\&.
 .SS "graphing\&.line = edges_file\&.readline()"
 
-.PP
-Definition at line 19 of file graphing\&.py\&.
+.SS "graphing\&.node_color"
+
 .SS "dictionary graphing\&.options"
 \fBInitial value:\fP
 .PP
@@ -99,41 +91,27 @@ Definition at line 19 of file graphing\&.py\&.
 1 =  {
 2     'node_size': 20,
 3     'width': 0\&.1,
-4     'alpha':0\&.6,
-5     'edge_color': '#333333',
-6     'pos':shape
+4     'font_size':10,
+5     'alpha':0\&.6,
+6     'edge_color': '#555555',
 7 }
 .fi
-.PP
-Definition at line 26 of file graphing\&.py\&.
+.SS "graphing\&.pos"
+
 .SS "graphing\&.s = scc\&.readlines()"
 
-.PP
-Definition at line 46 of file graphing\&.py\&.
 .SS "graphing\&.shape = nx\&.spring_layout(\fBDG\fP)"
 
-.PP
-Definition at line 25 of file graphing\&.py\&.
 .SS "graphing\&.sub = DG\&.subgraph(\fBV\fP)"
 
-.PP
-Definition at line 51 of file graphing\&.py\&.
 .SS "graphing\&.v"
 
-.PP
-Definition at line 17 of file graphing\&.py\&.
 .SS "graphing\&.V = list(map(int, line\&.split()))"
 
-.PP
-Definition at line 49 of file graphing\&.py\&.
 .SS "graphing\&.x"
 
-.PP
-Definition at line 22 of file graphing\&.py\&.
 .SS "graphing\&.y"
 
-.PP
-Definition at line 22 of file graphing\&.py\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for DAA Assignment - 1 from the source code\&.
+Generated automatically by Doxygen for DAA Assignment 1 from the source code\&.

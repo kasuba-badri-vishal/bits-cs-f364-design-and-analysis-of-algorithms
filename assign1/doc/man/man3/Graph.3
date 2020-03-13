@@ -1,4 +1,4 @@
-.TH "Graph" 3 "Thu Mar 12 2020" "Version 1" "DAA Assignment - 1" \" -*- nroff -*-
+.TH "Graph" 3 "Fri Mar 13 2020" "DAA Assignment 1" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -25,7 +25,7 @@ Graph \- This Program is the Implementation of \fBKosaraju Algorithm\fP\&.
 .ti -1c
 .RI "void \fBtopological_sort\fP (int vertex)"
 .br
-.RI "This is a method inside \fBGraph\fP Class which does sorts vertices inside graph using topological sorting based on vertices if they are visited or not and push them onto the stack \fITop_order\fP nodes are vertices and edges are connections\&. "
+.RI "This is a method inside \fBGraph\fP Class which does sorts vertices inside graph using topological sorting based on vertices if they are visited or not and push them onto the stack \fITop_order\fP This is similar to \fBinsertEdge()\fP "
 .ti -1c
 .RI "void \fBDFS\fP (int vertex)"
 .br
@@ -37,90 +37,93 @@ Graph \- This Program is the Implementation of \fBKosaraju Algorithm\fP\&.
 .ti -1c
 .RI "int \fBnV\fP"
 .br
+.RI "number of vertices "
 .ti -1c
 .RI "int \fBnE\fP"
 .br
+.RI "number of edges "
 .ti -1c
 .RI "map< int, list< int > > \fBadj\fP"
 .br
+.RI "adjacency list "
 .ti -1c
 .RI "unordered_set< int > \fBvisited\fP"
 .br
+.RI "visited set "
 .ti -1c
 .RI "unordered_set< int > \fBDFSvisited\fP"
 .br
+.RI "visited set used for DFS "
 .ti -1c
 .RI "set< int, greater< int > > \fBvertices\fP"
 .br
+.RI "set of vertices "
 .ti -1c
 .RI "stack< int > \fBTop_order\fP"
 .br
+.RI "stack that stores topological ordering of vertices "
 .in -1c
 .SH "Detailed Description"
 .PP 
 This Program is the Implementation of \fBKosaraju Algorithm\fP\&. 
 
-We use two \fIDFS\fP algorithmic searches to find the \fBConnected Components\fP\&. 
-.PP
-Definition at line 10 of file kosaraju_algorithm\&.cpp\&.
+We use two \fIDFS\fP algorithmic searches to find the \fBStrongly Connected Components\fP\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Graph::Graph (int nV, int nE)\fC [inline]\fP"
 
 .PP
-This is Constructor for the graph indicating nodes and edges\&. nodes are vertices and edges are connections\&. This constructor is called first of \fBinsertEdge()\fP ### Example 
+This is Constructor for the graph indicating nodes and edges\&. This constructor is called before calling \fBinsertEdge()\fP function 
+.SS "Constructor"
 .PP
 .nf
-Graph(int nV,int nE) { // constructor
+Graph(int nV,int nE) { 
     this->nV = nV;
     this->nE = nE;
 }
-
 .fi
 .PP
- 
 .PP
-\fBParameters:\fP
+\fBParameters\fP
 .RS 4
 \fInV\fP : Number of Vertices 
 .br
 \fInE\fP : Number of Edges 
 .RE
 .PP
-\fBReturns:\fP
+\fBReturns\fP
 .RS 4
 nothing is returned 
 .RE
 .PP
-\fBSee also:\fP
+\fBSee also\fP
 .RS 4
 \fBinsertEdge()\fP \fBmain()\fP 
 .RE
 .PP
-\fBNote:\fP
+\fBNote\fP
 .RS 4
 This is a constructor 
 .RE
 .PP
-\fBAttention:\fP
+\fBAttention\fP
 .RS 4
 This is constructor for the graph 
 .RE
 .PP
-\fBWarning:\fP
+\fBWarning\fP
 .RS 4
 It is required to specify nV and nE 
 .RE
 .PP
 
-.PP
-Definition at line 37 of file kosaraju_algorithm\&.cpp\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "void Graph::DFS (int vertex)\fC [inline]\fP"
 
 .PP
-This is a method inside \fBGraph\fP Class which does \fIDepth First Search\fP on the \fBGraph\fP\&. We traverse ### Example 
+This is a method inside \fBGraph\fP Class which does \fIDepth First Search\fP on the \fBGraph\fP\&. We traverse 
+.SS "DFS function"
 .PP
 .nf
 void DFS(int vertex){
@@ -133,38 +136,35 @@ void DFS(int vertex){
         }
     }
 }   
-
 .fi
 .PP
- 
 .PP
-\fBParameters:\fP
+\fBParameters\fP
 .RS 4
 \fIvertex\fP : vertex of \fBGraph\fP on which DFS is performed 
 .RE
 .PP
-\fBReturns:\fP
+\fBReturns\fP
 .RS 4
 nothing is returned 
 .RE
 .PP
-\fBSee also:\fP
+\fBSee also\fP
 .RS 4
 \fBtopological_sort()\fP \fBmain()\fP 
 .RE
 .PP
-\fBNote:\fP
+\fBNote\fP
 .RS 4
 DFS is done two times in kosaraju_algorithm and DFS is a recursive function 
 .RE
 .PP
 
-.PP
-Definition at line 150 of file kosaraju_algorithm\&.cpp\&.
 .SS "void Graph::insertEdge (int a, int b)\fC [inline]\fP"
 
 .PP
-This is a method inside the \fI\fBGraph\fP class\fP for the graph indicating insertion of edges\&. nodes are vertices and edges are connections\&. This method is called after \fBGraph()\fP constructor is called\&. ### Example 
+This is a method inside the \fI\fBGraph\fP class\fP for the graph indicating insertion of edges\&. This method is called after \fBGraph()\fP constructor is called\&. 
+.SS "insertEdge()"
 .PP
 .nf
 void insertEdge(int a,int b){
@@ -172,45 +172,42 @@ void insertEdge(int a,int b){
     vertices\&.insert(a);
     vertices\&.insert(b);  //all vertices  are in set right now
 }
-
 .fi
 .PP
- 
 .PP
-\fBParameters:\fP
+\fBParameters\fP
 .RS 4
 \fIa\fP : vertex of \fBGraph\fP having \fIoutgoing edge\fP to b 
 .br
 \fInE\fP : vertex of \fBGraph\fP having \fIincoming edge\fP from a 
 .RE
 .PP
-\fBReturns:\fP
+\fBReturns\fP
 .RS 4
 nothing is returned 
 .RE
 .PP
-\fBSee also:\fP
+\fBSee also\fP
 .RS 4
 \fBGraph()\fP \fBmain()\fP 
 .RE
 .PP
-\fBNote:\fP
+\fBNote\fP
 .RS 4
 This is a function inside \fBGraph\fP class and we are adding all vertices into set - \fIvertices\fP 
 .RE
 .PP
-\fBWarning:\fP
+\fBWarning\fP
 .RS 4
 It is required to specify a and b 
 .RE
 .PP
 
-.PP
-Definition at line 61 of file kosaraju_algorithm\&.cpp\&.
 .SS "\fBGraph\fP Graph::reverseGraph ()\fC [inline]\fP"
 
 .PP
-This is a method inside the \fI\fBGraph\fP class\fP for reversing the graph\&. We reverse the graph for comparing original graph to find \fISCC\fP\&. ### Function looks like this 
+This is a method inside the \fI\fBGraph\fP class\fP for reversing the graph\&. We reverse the graph for comparing original graph to find \fISCC\fP\&. 
+.SS "reverseGraph function"
 .PP
 .nf
 Graph reverseGraph(){
@@ -222,33 +219,30 @@ Graph reverseGraph(){
     }
     return newGraph;
 }
-
 .fi
 .PP
- 
 .PP
-\fBReturns:\fP
+\fBReturns\fP
 .RS 4
 The function returns newGraph which is reversed it's edge directions 
 .RE
 .PP
-\fBSee also:\fP
+\fBSee also\fP
 .RS 4
 \fBtopological_sort()\fP \fBmain()\fP 
 .RE
 .PP
-\fBNote:\fP
+\fBNote\fP
 .RS 4
 Reversed \fBGraph\fP contains same no\&. of vertices and edges just direction of edges changes\&. 
 .RE
 .PP
 
-.PP
-Definition at line 86 of file kosaraju_algorithm\&.cpp\&.
 .SS "void Graph::topological_sort (int vertex)\fC [inline]\fP"
 
 .PP
-This is a method inside \fBGraph\fP Class which does sorts vertices inside graph using topological sorting based on vertices if they are visited or not and push them onto the stack \fITop_order\fP nodes are vertices and edges are connections\&. This is similar to \fBinsertEdge()\fP ### Example 
+This is a method inside \fBGraph\fP Class which does sorts vertices inside graph using topological sorting based on vertices if they are visited or not and push them onto the stack \fITop_order\fP This is similar to \fBinsertEdge()\fP 
+.SS "Topological Sort function"
 .PP
 .nf
 void topological_sort(int vertex){
@@ -261,70 +255,66 @@ void topological_sort(int vertex){
     }
     Top_order\&.push(vertex);
 }
-
 .fi
 .PP
- 
 .PP
-\fBParameters:\fP
+\fBParameters\fP
 .RS 4
 \fIvertex\fP : vertex of \fBGraph\fP which is the next visited vertex 
 .RE
 .PP
-\fBReturns:\fP
+\fBReturns\fP
 .RS 4
 nothing is returned 
 .RE
 .PP
-\fBSee also:\fP
+\fBSee also\fP
 .RS 4
 \fBDFS()\fP \fBmain()\fP 
 .RE
 .PP
-\fBNote:\fP
+\fBNote\fP
 .RS 4
 This function helps in building stack which is used to compare original graph and reversed graph for finding SCC\&. 
 .RE
 .PP
-\fBAttention:\fP
+\fBAttention\fP
 .RS 4
 This is a linear ordering of vertices and done for Directed Acyclic Graphs 
 .RE
 .PP
 
-.PP
-Definition at line 118 of file kosaraju_algorithm\&.cpp\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "map<int,list<int> > Graph::adj"
 
 .PP
-Definition at line 13 of file kosaraju_algorithm\&.cpp\&.
+adjacency list 
 .SS "unordered_set<int> Graph::DFSvisited"
 
 .PP
-Definition at line 15 of file kosaraju_algorithm\&.cpp\&.
+visited set used for DFS 
 .SS "int Graph::nE"
 
 .PP
-Definition at line 12 of file kosaraju_algorithm\&.cpp\&.
+number of edges 
 .SS "int Graph::nV"
 
 .PP
-Definition at line 12 of file kosaraju_algorithm\&.cpp\&.
+number of vertices 
 .SS "stack<int> Graph::Top_order"
 
 .PP
-Definition at line 17 of file kosaraju_algorithm\&.cpp\&.
+stack that stores topological ordering of vertices 
 .SS "set<int,greater<int> > Graph::vertices"
 
 .PP
-Definition at line 16 of file kosaraju_algorithm\&.cpp\&.
+set of vertices 
 .SS "unordered_set<int> Graph::visited"
 
 .PP
-Definition at line 14 of file kosaraju_algorithm\&.cpp\&.
+visited set 
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for DAA Assignment - 1 from the source code\&.
+Generated automatically by Doxygen for DAA Assignment 1 from the source code\&.

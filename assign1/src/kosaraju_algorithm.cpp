@@ -5,23 +5,24 @@ using namespace std;
 
 /// This Program is the Implementation of **Kosaraju Algorithm**.
 ///
-/// We use two *DFS* algorithmic searches to find the **Connected Components**.
+/// We use two *DFS* algorithmic searches to find the **Strongly Connected Components**.
 
 class Graph{
 public:
-	int nV,nE;
-	map<int,list<int> > adj; 
-	unordered_set<int> visited;
-	unordered_set<int> DFSvisited;
-	set<int,greater<int> >vertices;
-	stack<int> Top_order;
+	int nV; /**< number of vertices */
+	int nE; /**< number of edges */
+	map<int,list<int> > adj; /**< adjacency list */
+	unordered_set<int> visited;  /**< visited set */
+	unordered_set<int> DFSvisited; /**< visited set used for DFS */
+	set<int,greater<int> >vertices; /**< set of vertices */
+	stack<int> Top_order; /**< stack that stores topological ordering of vertices */
 
 	/// This is Constructor for the graph indicating nodes and edges
 	///
 	/// This constructor is called before calling insertEdge() function
-	/// ### Example
+	/// ### Constructor
 	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
-	/// Graph(int nV,int nE) { // constructor
+	/// Graph(int nV,int nE) { 
 	/// 	this->nV = nV;
 	///		this->nE = nE;
 	/// }
@@ -43,7 +44,7 @@ public:
 	/// This is a method inside the *Graph class* for the graph indicating insertion of edges
 	///
 	/// This method is called after Graph() constructor is called.
-	/// ### Function insertEdge
+	/// ### insertEdge()
 	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
 	/// void insertEdge(int a,int b){
 	/// 	adj[a].push_back(b); //lists are only for those which have outgoing edges
@@ -67,7 +68,7 @@ public:
 	/// This is a method inside the *Graph class* for reversing the graph
 	///
 	/// We reverse the graph for comparing original graph to find *SCC*.
-	/// ### Function looks like this
+	/// ### reverseGraph function
 	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
 	/// Graph reverseGraph(){
 	/// 	Graph newGraph =  Graph(nV,nE);

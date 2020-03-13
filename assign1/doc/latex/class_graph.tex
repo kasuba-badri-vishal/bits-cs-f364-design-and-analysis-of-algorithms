@@ -1,0 +1,325 @@
+\hypertarget{class_graph}{}\doxysection{Graph Class Reference}
+\label{class_graph}\index{Graph@{Graph}}
+
+
+This Program is the Implementation of {\bfseries{Kosaraju Algorithm}}.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_a5fdcee7e1d60eace32a7d8d8f12cd1a5}{Graph}} (int \mbox{\hyperlink{class_graph_aefd3934db10b92335f2935e4220b0590}{nV}}, int \mbox{\hyperlink{class_graph_a9dedcc7c9307033f26f6c2df2d3b871f}{nE}})
+\begin{DoxyCompactList}\small\item\em This is Constructor for the graph indicating nodes and edges. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a1c3af1a9af40a59bf927127d8b2de800}{insert\+Edge}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em This is a method inside the {\itshape \mbox{\hyperlink{class_graph}{Graph}} class} for the graph indicating insertion of edges. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph}{Graph}} \mbox{\hyperlink{class_graph_a772b16268934a7eeabb6b62b33a6bb61}{reverse\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em This is a method inside the {\itshape \mbox{\hyperlink{class_graph}{Graph}} class} for reversing the graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a8738c59a9f52ded4c5777c6bb39a1348}{topological\+\_\+sort}} (int vertex)
+\begin{DoxyCompactList}\small\item\em This is a method inside \mbox{\hyperlink{class_graph}{Graph}} Class which does sorts vertices inside graph using topological sorting based on vertices if they are visited or not and push them onto the stack {\itshape Top\+\_\+order} This is similar to \mbox{\hyperlink{class_graph_a1c3af1a9af40a59bf927127d8b2de800}{insert\+Edge()}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_af7344ea2aec32ddc99cace497b515a83}{D\+FS}} (int vertex)
+\begin{DoxyCompactList}\small\item\em This is a method inside \mbox{\hyperlink{class_graph}{Graph}} Class which does {\itshape Depth First Search} on the \mbox{\hyperlink{class_graph}{Graph}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_graph_aefd3934db10b92335f2935e4220b0590}{nV}}
+\begin{DoxyCompactList}\small\item\em number of vertices \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graph_a9dedcc7c9307033f26f6c2df2d3b871f}{nE}}
+\begin{DoxyCompactList}\small\item\em number of edges \end{DoxyCompactList}\item 
+map$<$ int, list$<$ int $>$ $>$ \mbox{\hyperlink{class_graph_ab245eed03a08660a567437d55ffcf030}{adj}}
+\begin{DoxyCompactList}\small\item\em adjacency list \end{DoxyCompactList}\item 
+unordered\+\_\+set$<$ int $>$ \mbox{\hyperlink{class_graph_a3cf44d591c9ac79b2bfe69282e0b97eb}{visited}}
+\begin{DoxyCompactList}\small\item\em visited set \end{DoxyCompactList}\item 
+unordered\+\_\+set$<$ int $>$ \mbox{\hyperlink{class_graph_a05571dd3380e8e22e2a6d0d0cd8ec6f1}{D\+F\+Svisited}}
+\begin{DoxyCompactList}\small\item\em visited set used for D\+FS \end{DoxyCompactList}\item 
+set$<$ int, greater$<$ int $>$ $>$ \mbox{\hyperlink{class_graph_af50e2366ad1826d2818ba0ba8adf45d9}{vertices}}
+\begin{DoxyCompactList}\small\item\em set of vertices \end{DoxyCompactList}\item 
+stack$<$ int $>$ \mbox{\hyperlink{class_graph_aefc76d997f4a764cc4323af3f7a12970}{Top\+\_\+order}}
+\begin{DoxyCompactList}\small\item\em stack that stores topological ordering of vertices \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This Program is the Implementation of {\bfseries{Kosaraju Algorithm}}. 
+
+We use two {\itshape D\+FS} algorithmic searches to find the {\bfseries{Strongly Connected Components}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graph_a5fdcee7e1d60eace32a7d8d8f12cd1a5}\label{class_graph_a5fdcee7e1d60eace32a7d8d8f12cd1a5}} 
+\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{int}]{nV,  }\item[{int}]{nE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is Constructor for the graph indicating nodes and edges. 
+
+This constructor is called before calling \mbox{\hyperlink{class_graph_a1c3af1a9af40a59bf927127d8b2de800}{insert\+Edge()}} function \hypertarget{class_graph_autotoc_md3}{}\doxyparagraph{Constructor}\label{class_graph_autotoc_md3}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_graph_a5fdcee7e1d60eace32a7d8d8f12cd1a5}{Graph}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_graph_aefd3934db10b92335f2935e4220b0590}{nV}},\textcolor{keywordtype}{int} \mbox{\hyperlink{class_graph_a9dedcc7c9307033f26f6c2df2d3b871f}{nE}}) \{ }
+\DoxyCodeLine{    this-\/>nV = \mbox{\hyperlink{class_graph_aefd3934db10b92335f2935e4220b0590}{nV}};}
+\DoxyCodeLine{    this-\/>nE = \mbox{\hyperlink{class_graph_a9dedcc7c9307033f26f6c2df2d3b871f}{nE}};}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em nV} & \+: Number of Vertices \\
+\hline
+{\em nE} & \+: Number of Edges \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing is returned 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_graph_a1c3af1a9af40a59bf927127d8b2de800}{insert\+Edge()}} \mbox{\hyperlink{divide__and__conquer_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This is a constructor 
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+This is constructor for the graph 
+\end{DoxyAttention}
+\begin{DoxyWarning}{Warning}
+It is required to specify nV and nE 
+\end{DoxyWarning}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph_af7344ea2aec32ddc99cace497b515a83}\label{class_graph_af7344ea2aec32ddc99cace497b515a83}} 
+\index{Graph@{Graph}!DFS@{DFS}}
+\index{DFS@{DFS}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{DFS()}{DFS()}}
+{\footnotesize\ttfamily void Graph\+::\+D\+FS (\begin{DoxyParamCaption}\item[{int}]{vertex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is a method inside \mbox{\hyperlink{class_graph}{Graph}} Class which does {\itshape Depth First Search} on the \mbox{\hyperlink{class_graph}{Graph}}. 
+
+We traverse \hypertarget{class_graph_autotoc_md7}{}\doxyparagraph{D\+F\+S function}\label{class_graph_autotoc_md7}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_af7344ea2aec32ddc99cace497b515a83}{DFS}}(\textcolor{keywordtype}{int} vertex)\{}
+\DoxyCodeLine{    cout<<vertex << \textcolor{stringliteral}{" "};}
+\DoxyCodeLine{    \mbox{\hyperlink{class_graph_a05571dd3380e8e22e2a6d0d0cd8ec6f1}{DFSvisited}}.insert(vertex);}
+\DoxyCodeLine{    list<int>::iterator iter;}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(iter = \mbox{\hyperlink{class_graph_ab245eed03a08660a567437d55ffcf030}{adj}}[vertex].begin(); iter!= \mbox{\hyperlink{class_graph_ab245eed03a08660a567437d55ffcf030}{adj}}[vertex].end();iter++)\{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_graph_a05571dd3380e8e22e2a6d0d0cd8ec6f1}{DFSvisited}}.find(*iter)==\mbox{\hyperlink{class_graph_a05571dd3380e8e22e2a6d0d0cd8ec6f1}{DFSvisited}}.end())\{}
+\DoxyCodeLine{            \mbox{\hyperlink{class_graph_af7344ea2aec32ddc99cace497b515a83}{DFS}}(*iter);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}   }
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \+: vertex of \mbox{\hyperlink{class_graph}{Graph}} on which D\+FS is performed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing is returned 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_graph_a8738c59a9f52ded4c5777c6bb39a1348}{topological\+\_\+sort()}} \mbox{\hyperlink{divide__and__conquer_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+D\+FS is done two times in kosaraju\+\_\+algorithm and D\+FS is a recursive function 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_graph_a1c3af1a9af40a59bf927127d8b2de800}\label{class_graph_a1c3af1a9af40a59bf927127d8b2de800}} 
+\index{Graph@{Graph}!insertEdge@{insertEdge}}
+\index{insertEdge@{insertEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{insertEdge()}{insertEdge()}}
+{\footnotesize\ttfamily void Graph\+::insert\+Edge (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is a method inside the {\itshape \mbox{\hyperlink{class_graph}{Graph}} class} for the graph indicating insertion of edges. 
+
+This method is called after \mbox{\hyperlink{class_graph_a5fdcee7e1d60eace32a7d8d8f12cd1a5}{Graph()}} constructor is called. \hypertarget{class_graph_autotoc_md4}{}\doxyparagraph{insert\+Edge()}\label{class_graph_autotoc_md4}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a1c3af1a9af40a59bf927127d8b2de800}{insertEdge}}(\textcolor{keywordtype}{int} a,\textcolor{keywordtype}{int} b)\{}
+\DoxyCodeLine{    \mbox{\hyperlink{class_graph_ab245eed03a08660a567437d55ffcf030}{adj}}[a].push\_back(b); \textcolor{comment}{//lists are only for those which have outgoing edges}}
+\DoxyCodeLine{    \mbox{\hyperlink{class_graph_af50e2366ad1826d2818ba0ba8adf45d9}{vertices}}.insert(a);}
+\DoxyCodeLine{    \mbox{\hyperlink{class_graph_af50e2366ad1826d2818ba0ba8adf45d9}{vertices}}.insert(b);  \textcolor{comment}{//all vertices  are in set right now}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \+: vertex of \mbox{\hyperlink{class_graph}{Graph}} having {\itshape outgoing edge} to b \\
+\hline
+{\em nE} & \+: vertex of \mbox{\hyperlink{class_graph}{Graph}} having {\itshape incoming edge} from a \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing is returned 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_graph_a5fdcee7e1d60eace32a7d8d8f12cd1a5}{Graph()}} \mbox{\hyperlink{divide__and__conquer_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This is a function inside \mbox{\hyperlink{class_graph}{Graph}} class and we are adding all vertices into set -\/ {\itshape vertices} 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+It is required to specify a and b 
+\end{DoxyWarning}
+\mbox{\Hypertarget{class_graph_a772b16268934a7eeabb6b62b33a6bb61}\label{class_graph_a772b16268934a7eeabb6b62b33a6bb61}} 
+\index{Graph@{Graph}!reverseGraph@{reverseGraph}}
+\index{reverseGraph@{reverseGraph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{reverseGraph()}{reverseGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}} Graph\+::reverse\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is a method inside the {\itshape \mbox{\hyperlink{class_graph}{Graph}} class} for reversing the graph. 
+
+We reverse the graph for comparing original graph to find {\itshape S\+CC}. \hypertarget{class_graph_autotoc_md5}{}\doxyparagraph{reverse\+Graph function}\label{class_graph_autotoc_md5}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_graph}{Graph}} \mbox{\hyperlink{class_graph_a772b16268934a7eeabb6b62b33a6bb61}{reverseGraph}}()\{}
+\DoxyCodeLine{    \mbox{\hyperlink{class_graph}{Graph}} newGraph =  \mbox{\hyperlink{class_graph_a5fdcee7e1d60eace32a7d8d8f12cd1a5}{Graph}}(\mbox{\hyperlink{class_graph_aefd3934db10b92335f2935e4220b0590}{nV}},\mbox{\hyperlink{class_graph_a9dedcc7c9307033f26f6c2df2d3b871f}{nE}});}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i :\mbox{\hyperlink{class_graph_ab245eed03a08660a567437d55ffcf030}{adj}})\{}
+\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} j:i.second)\{}
+\DoxyCodeLine{            newGraph.\mbox{\hyperlink{class_graph_ab245eed03a08660a567437d55ffcf030}{adj}}[j].push\_back(i.first);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} newGraph;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+\begin{DoxyReturn}{Returns}
+The function returns new\+Graph which is reversed it\textquotesingle{}s edge directions 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_graph_a8738c59a9f52ded4c5777c6bb39a1348}{topological\+\_\+sort()}} \mbox{\hyperlink{divide__and__conquer_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+Reversed \mbox{\hyperlink{class_graph}{Graph}} contains same no. of vertices and edges just direction of edges changes. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_graph_a8738c59a9f52ded4c5777c6bb39a1348}\label{class_graph_a8738c59a9f52ded4c5777c6bb39a1348}} 
+\index{Graph@{Graph}!topological\_sort@{topological\_sort}}
+\index{topological\_sort@{topological\_sort}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{topological\_sort()}{topological\_sort()}}
+{\footnotesize\ttfamily void Graph\+::topological\+\_\+sort (\begin{DoxyParamCaption}\item[{int}]{vertex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is a method inside \mbox{\hyperlink{class_graph}{Graph}} Class which does sorts vertices inside graph using topological sorting based on vertices if they are visited or not and push them onto the stack {\itshape Top\+\_\+order} This is similar to \mbox{\hyperlink{class_graph_a1c3af1a9af40a59bf927127d8b2de800}{insert\+Edge()}} 
+
+\hypertarget{class_graph_autotoc_md6}{}\doxyparagraph{Topological Sort function}\label{class_graph_autotoc_md6}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a8738c59a9f52ded4c5777c6bb39a1348}{topological\_sort}}(\textcolor{keywordtype}{int} vertex)\{}
+\DoxyCodeLine{    \mbox{\hyperlink{class_graph_a3cf44d591c9ac79b2bfe69282e0b97eb}{visited}}.insert(vertex); \textcolor{comment}{// insert element into set of visited vertices}}
+\DoxyCodeLine{    list<int>::iterator iter;}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(iter = \mbox{\hyperlink{class_graph_ab245eed03a08660a567437d55ffcf030}{adj}}[vertex].begin(); iter!= \mbox{\hyperlink{class_graph_ab245eed03a08660a567437d55ffcf030}{adj}}[vertex].end();iter++)\{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_graph_a3cf44d591c9ac79b2bfe69282e0b97eb}{visited}}.find(*iter)==\mbox{\hyperlink{class_graph_a3cf44d591c9ac79b2bfe69282e0b97eb}{visited}}.end())\{}
+\DoxyCodeLine{            \mbox{\hyperlink{class_graph_a8738c59a9f52ded4c5777c6bb39a1348}{topological\_sort}}(*iter);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \mbox{\hyperlink{class_graph_aefc76d997f4a764cc4323af3f7a12970}{Top\_order}}.push(vertex);}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \+: vertex of \mbox{\hyperlink{class_graph}{Graph}} which is the next visited vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing is returned 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_graph_af7344ea2aec32ddc99cace497b515a83}{D\+F\+S()}} \mbox{\hyperlink{divide__and__conquer_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This function helps in building stack which is used to compare original graph and reversed graph for finding S\+CC. 
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+This is a linear ordering of vertices and done for Directed Acyclic Graphs 
+\end{DoxyAttention}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_graph_ab245eed03a08660a567437d55ffcf030}\label{class_graph_ab245eed03a08660a567437d55ffcf030}} 
+\index{Graph@{Graph}!adj@{adj}}
+\index{adj@{adj}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{adj}{adj}}
+{\footnotesize\ttfamily map$<$int,list$<$int$>$ $>$ Graph\+::adj}
+
+
+
+adjacency list 
+
+\mbox{\Hypertarget{class_graph_a05571dd3380e8e22e2a6d0d0cd8ec6f1}\label{class_graph_a05571dd3380e8e22e2a6d0d0cd8ec6f1}} 
+\index{Graph@{Graph}!DFSvisited@{DFSvisited}}
+\index{DFSvisited@{DFSvisited}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{DFSvisited}{DFSvisited}}
+{\footnotesize\ttfamily unordered\+\_\+set$<$int$>$ Graph\+::\+D\+F\+Svisited}
+
+
+
+visited set used for D\+FS 
+
+\mbox{\Hypertarget{class_graph_a9dedcc7c9307033f26f6c2df2d3b871f}\label{class_graph_a9dedcc7c9307033f26f6c2df2d3b871f}} 
+\index{Graph@{Graph}!nE@{nE}}
+\index{nE@{nE}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{nE}{nE}}
+{\footnotesize\ttfamily int Graph\+::nE}
+
+
+
+number of edges 
+
+\mbox{\Hypertarget{class_graph_aefd3934db10b92335f2935e4220b0590}\label{class_graph_aefd3934db10b92335f2935e4220b0590}} 
+\index{Graph@{Graph}!nV@{nV}}
+\index{nV@{nV}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{nV}{nV}}
+{\footnotesize\ttfamily int Graph\+::nV}
+
+
+
+number of vertices 
+
+\mbox{\Hypertarget{class_graph_aefc76d997f4a764cc4323af3f7a12970}\label{class_graph_aefc76d997f4a764cc4323af3f7a12970}} 
+\index{Graph@{Graph}!Top\_order@{Top\_order}}
+\index{Top\_order@{Top\_order}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Top\_order}{Top\_order}}
+{\footnotesize\ttfamily stack$<$int$>$ Graph\+::\+Top\+\_\+order}
+
+
+
+stack that stores topological ordering of vertices 
+
+\mbox{\Hypertarget{class_graph_af50e2366ad1826d2818ba0ba8adf45d9}\label{class_graph_af50e2366ad1826d2818ba0ba8adf45d9}} 
+\index{Graph@{Graph}!vertices@{vertices}}
+\index{vertices@{vertices}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily set$<$int,greater$<$int$>$ $>$ Graph\+::vertices}
+
+
+
+set of vertices 
+
+\mbox{\Hypertarget{class_graph_a3cf44d591c9ac79b2bfe69282e0b97eb}\label{class_graph_a3cf44d591c9ac79b2bfe69282e0b97eb}} 
+\index{Graph@{Graph}!visited@{visited}}
+\index{visited@{visited}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{visited}{visited}}
+{\footnotesize\ttfamily unordered\+\_\+set$<$int$>$ Graph\+::visited}
+
+
+
+visited set 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Projects/\+D\+A\+A\+\_\+\+Assignments/assign1/src/\mbox{\hyperlink{kosaraju__algorithm_8cpp}{kosaraju\+\_\+algorithm.\+cpp}}\end{DoxyCompactItemize}

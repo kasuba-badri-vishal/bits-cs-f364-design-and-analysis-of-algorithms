@@ -1,8 +1,8 @@
-.TH "src/divide_and_conquer.cpp" 3 "Thu Mar 12 2020" "Version 1" "DAA Assignment - 1" \" -*- nroff -*-
+.TH "E:/Projects/DAA_Assignments/assign1/src/divide_and_conquer.cpp" 3 "Fri Mar 13 2020" "DAA Assignment 1" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-src/divide_and_conquer.cpp
+E:/Projects/DAA_Assignments/assign1/src/divide_and_conquer.cpp
 .SH SYNOPSIS
 .br
 .PP
@@ -17,6 +17,7 @@ src/divide_and_conquer.cpp
 .ti -1c
 .RI "class \fBGraph1\fP"
 .br
+.RI "This program is the Implementation of \fBDivide_and_Conquer Algorithm\fP presented in the research paper\&. "
 .in -1c
 .SS "Macros"
 
@@ -46,27 +47,25 @@ src/divide_and_conquer.cpp
 .ti -1c
 .RI "unordered_map< int, list< int > > \fBadj\fP"
 .br
-.RI "This Program is the Implementation of \fBDivide_and_Conquer Algorithm\fP presented in the research paper\&. "
+.RI "adjacency listunordered_map The documentation block cannot be put after the enum! "
 .ti -1c
 .RI "unordered_map< int, list< int > > \fBrev_adj\fP"
 .br
+.RI "an unordered map for reverse adjacency list "
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
 .SS "#define ll   long long"
 
-.PP
-Definition at line 7 of file divide_and_conquer\&.cpp\&.
 .SS "#define N   1000"
 
-.PP
-Definition at line 6 of file divide_and_conquer\&.cpp\&.
 .SH "Function Documentation"
 .PP 
 .SS "void DCSC (\fBGraph1\fP g)"
 
 .PP
-This is the core function of the Divide and Conquer Algorithm to find Strongly Connected Components\&. ### Algorithm 
+This is the core function of the Divide and Conquer Algorithm to find Strongly Connected Components\&. 
+.SS "Algorithm"
 .PP
 .nf
 DCSC(G)
@@ -79,64 +78,56 @@ DCSC(G)
         DCSC(Pred(G, v) \ SCC)
         DCSC(Desc(G, v) \ SCC)
         DCSC(Rem(G, v))
-
 .fi
 .PP
- 
 .PP
-\fBParameters:\fP
+\fBParameters\fP
 .RS 4
 \fIg\fP : \fBGraph1\fP on which the algorithm is to be applied 
 .RE
 .PP
-\fBReturns:\fP
+\fBReturns\fP
 .RS 4
 nothing is returned 
 .RE
 .PP
-\fBSee also:\fP
+\fBSee also\fP
 .RS 4
 getPred() getDesc() \fBmain()\fP 
 .RE
 .PP
 
-.PP
-Definition at line 157 of file divide_and_conquer\&.cpp\&.
 .SS "int main ()"
 
 .PP
 This is the main function of this c++ program\&. A \fBGraph1\fP object is created using data from input and the function DCSC is called on this \fBGraph1\fP\&.
 .PP
-\fBReturns:\fP
+\fBReturns\fP
 .RS 4
 int 
 .RE
 .PP
-\fBSee also:\fP
+\fBSee also\fP
 .RS 4
 \fBDCSC()\fP 
 .RE
 .PP
-\fBNote:\fP
+\fBNote\fP
 .RS 4
 This is the main function 
 .RE
 .PP
 
-.PP
-Definition at line 200 of file divide_and_conquer\&.cpp\&.
 .SH "Variable Documentation"
 .PP 
 .SS "unordered_map<int, list<int> > adj"
 
 .PP
-This Program is the Implementation of \fBDivide_and_Conquer Algorithm\fP presented in the research paper\&. We use DCSC, predecesser,descendent methods to find the \fBStroingly Connected Components\fP\&. 
-.PP
-Definition at line 13 of file divide_and_conquer\&.cpp\&.
+adjacency listunordered_map The documentation block cannot be put after the enum! an unordered map for adjacency list 
 .SS "unordered_map<int, list<int> > rev_adj"
 
 .PP
-Definition at line 14 of file divide_and_conquer\&.cpp\&.
+an unordered map for reverse adjacency list 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for DAA Assignment - 1 from the source code\&.
+Generated automatically by Doxygen for DAA Assignment 1 from the source code\&.

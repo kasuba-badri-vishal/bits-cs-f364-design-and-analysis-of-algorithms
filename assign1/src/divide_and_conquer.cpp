@@ -6,22 +6,25 @@ using namespace std;
 #define N 1000
 #define ll long long
 
-/// This Program is the Implementation of **Divide_and_Conquer Algorithm** presented in the research paper.
-///
-/// We use DCSC, predecesser,descendent methods to find the **Stroingly Connected Components**.
+/** adjacency listunordered_map
+ *  The documentation block cannot be put after the enum! 
+ */
+unordered_map<int, list<int> > adj; /**< an unordered map for adjacency list */
+unordered_map<int, list<int> > rev_adj; /**< an unordered map for reverse adjacency list */
 
-unordered_map<int, list<int> > adj;
-unordered_map<int, list<int> > rev_adj;
+/// This program is the Implementation of **Divide_and_Conquer Algorithm** presented in the research paper.
+///
+/// We use DCSC, predecesser,descendent methods to find the **Strongly Connected Components**.
 
 class Graph1{
 	public:
-	int n_edges;
-	set<int> V;
+	int n_edges;  /**< number of edges */
+	set<int> V;	 /**< set of vertices */
 
 	/// This is a constructor for the Graph1 class.
 	///	It is called by passing the number of edges as argument.
 	///
-	/// ### Example
+	/// ### Constructor
 	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
 	/// Graph1(int n_edges){
 	/// 	this->n_edges = n_edges;
@@ -43,7 +46,7 @@ class Graph1{
 	/// It creates a subGraph1 of the Graph1 specified by adj (adjacency list) using 
 	/// a subset of vertices.
 	///
-	/// ### Example
+	/// ### Constructor
 	/// ~~~~~~~~~~~~~~~~~~~~~~.cpp
 	///	Graph1(set<int> V1){
 	/// 	V = V1;

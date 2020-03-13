@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['options',['options',['../d8/d96/namespacegraphing.html#a60ef41207a46d35d62084d960125efa6',1,'graphing']]]
+  ['options_84',['options',['../namespacegraphing.html#a9f67f907978f413e36691c830fe2bdf8',1,'graphing']]]
 ];

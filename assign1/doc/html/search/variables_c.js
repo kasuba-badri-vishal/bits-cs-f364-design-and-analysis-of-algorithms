@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y',['y',['../d8/d96/namespacegraphing.html#a56adf673f3887f674fbda6c14604a1d0',1,'graphing']]]
+  ['x_94',['x',['../namespacegraphing.html#a9eb1617a2c0704af96be73b103b0fc38',1,'graphing']]]
 ];

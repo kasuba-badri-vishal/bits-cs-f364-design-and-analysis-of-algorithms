@@ -1,0 +1,129 @@
+\hypertarget{divide__and__conquer_8cpp}{}\doxysection{E\+:/\+Projects/\+D\+A\+A\+\_\+\+Assignments/assign1/src/divide\+\_\+and\+\_\+conquer.cpp File Reference}
+\label{divide__and__conquer_8cpp}\index{E:/Projects/DAA\_Assignments/assign1/src/divide\_and\_conquer.cpp@{E:/Projects/DAA\_Assignments/assign1/src/divide\_and\_conquer.cpp}}
+{\ttfamily \#include $<$bits/stdc++.\+h$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_graph1}{Graph1}}
+\begin{DoxyCompactList}\small\item\em This program is the Implementation of {\bfseries{Divide\+\_\+and\+\_\+\+Conquer Algorithm}} presented in the research paper. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{divide__and__conquer_8cpp_a0240ac851181b84ac374872dc5434ee4}{N}}~1000
+\item 
+\#define \mbox{\hyperlink{divide__and__conquer_8cpp_ae1d1ec9482079231e898236e2b23c9ba}{ll}}~long long
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{divide__and__conquer_8cpp_a823cb5ea0a4d50a916bc76bf658d9c2d}{D\+C\+SC}} (\mbox{\hyperlink{class_graph1}{Graph1}} g)
+\begin{DoxyCompactList}\small\item\em This is the core function of the Divide and Conquer Algorithm to find Strongly Connected Components. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{divide__and__conquer_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em This is the main function of this c++ program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unordered\+\_\+map$<$ int, list$<$ int $>$ $>$ \mbox{\hyperlink{divide__and__conquer_8cpp_aa60d17a9a8198654b4ffd7eee3d260e3}{adj}}
+\begin{DoxyCompactList}\small\item\em adjacency listunordered\+\_\+map The documentation block cannot be put after the enum! \end{DoxyCompactList}\item 
+unordered\+\_\+map$<$ int, list$<$ int $>$ $>$ \mbox{\hyperlink{divide__and__conquer_8cpp_a69bc3a835bcd545e9f495f21e61930c2}{rev\+\_\+adj}}
+\begin{DoxyCompactList}\small\item\em an unordered map for reverse adjacency list \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{divide__and__conquer_8cpp_ae1d1ec9482079231e898236e2b23c9ba}\label{divide__and__conquer_8cpp_ae1d1ec9482079231e898236e2b23c9ba}} 
+\index{divide\_and\_conquer.cpp@{divide\_and\_conquer.cpp}!ll@{ll}}
+\index{ll@{ll}!divide\_and\_conquer.cpp@{divide\_and\_conquer.cpp}}
+\doxysubsubsection{\texorpdfstring{ll}{ll}}
+{\footnotesize\ttfamily \#define ll~long long}
+
+\mbox{\Hypertarget{divide__and__conquer_8cpp_a0240ac851181b84ac374872dc5434ee4}\label{divide__and__conquer_8cpp_a0240ac851181b84ac374872dc5434ee4}} 
+\index{divide\_and\_conquer.cpp@{divide\_and\_conquer.cpp}!N@{N}}
+\index{N@{N}!divide\_and\_conquer.cpp@{divide\_and\_conquer.cpp}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily \#define N~1000}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{divide__and__conquer_8cpp_a823cb5ea0a4d50a916bc76bf658d9c2d}\label{divide__and__conquer_8cpp_a823cb5ea0a4d50a916bc76bf658d9c2d}} 
+\index{divide\_and\_conquer.cpp@{divide\_and\_conquer.cpp}!DCSC@{DCSC}}
+\index{DCSC@{DCSC}!divide\_and\_conquer.cpp@{divide\_and\_conquer.cpp}}
+\doxysubsubsection{\texorpdfstring{DCSC()}{DCSC()}}
+{\footnotesize\ttfamily void D\+C\+SC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph1}{Graph1}}}]{g }\end{DoxyParamCaption})}
+
+
+
+This is the core function of the Divide and Conquer Algorithm to find Strongly Connected Components. 
+
+\hypertarget{divide__and__conquer_8cpp_autotoc_md0}{}\doxyparagraph{Algorithm}\label{divide__and__conquer_8cpp_autotoc_md0}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{divide__and__conquer_8cpp_a823cb5ea0a4d50a916bc76bf658d9c2d}{DCSC}}(G)}
+\DoxyCodeLine{    If G has no edges then}
+\DoxyCodeLine{        forall \mbox{\hyperlink{namespacegraphing_ae7aa8d39bceaa14b18b5b8e0a530ce9f}{v}} in \mbox{\hyperlink{namespacegraphing_a51098f4c7339854e88354b6923aa0cb3}{V}} Output \{\mbox{\hyperlink{namespacegraphing_ae7aa8d39bceaa14b18b5b8e0a530ce9f}{v}}\}.}
+\DoxyCodeLine{    Else}
+\DoxyCodeLine{        Select a random vertex \mbox{\hyperlink{namespacegraphing_ae7aa8d39bceaa14b18b5b8e0a530ce9f}{v}} from \mbox{\hyperlink{namespacegraphing_a51098f4c7339854e88354b6923aa0cb3}{V}}}
+\DoxyCodeLine{        SCC <-\/ Pred(G, \mbox{\hyperlink{namespacegraphing_ae7aa8d39bceaa14b18b5b8e0a530ce9f}{v}}) \(\backslash\) Desc(G, \mbox{\hyperlink{namespacegraphing_ae7aa8d39bceaa14b18b5b8e0a530ce9f}{v}})}
+\DoxyCodeLine{        Output SCC}
+\DoxyCodeLine{        \mbox{\hyperlink{divide__and__conquer_8cpp_a823cb5ea0a4d50a916bc76bf658d9c2d}{DCSC}}(Pred(G, \mbox{\hyperlink{namespacegraphing_ae7aa8d39bceaa14b18b5b8e0a530ce9f}{v}}) \(\backslash\) SCC)}
+\DoxyCodeLine{        \mbox{\hyperlink{divide__and__conquer_8cpp_a823cb5ea0a4d50a916bc76bf658d9c2d}{DCSC}}(Desc(G, \mbox{\hyperlink{namespacegraphing_ae7aa8d39bceaa14b18b5b8e0a530ce9f}{v}}) \(\backslash\) SCC)}
+\DoxyCodeLine{        \mbox{\hyperlink{divide__and__conquer_8cpp_a823cb5ea0a4d50a916bc76bf658d9c2d}{DCSC}}(Rem(G, \mbox{\hyperlink{namespacegraphing_ae7aa8d39bceaa14b18b5b8e0a530ce9f}{v}}))}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \+: \mbox{\hyperlink{class_graph1}{Graph1}} on which the algorithm is to be applied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing is returned 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+get\+Pred() get\+Desc() \mbox{\hyperlink{divide__and__conquer_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{divide__and__conquer_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{divide__and__conquer_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{divide\_and\_conquer.cpp@{divide\_and\_conquer.cpp}!main@{main}}
+\index{main@{main}!divide\_and\_conquer.cpp@{divide\_and\_conquer.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This is the main function of this c++ program. 
+
+A \mbox{\hyperlink{class_graph1}{Graph1}} object is created using data from input and the function D\+C\+SC is called on this \mbox{\hyperlink{class_graph1}{Graph1}}.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{divide__and__conquer_8cpp_a823cb5ea0a4d50a916bc76bf658d9c2d}{D\+C\+S\+C()}} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This is the main function 
+\end{DoxyNote}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{divide__and__conquer_8cpp_aa60d17a9a8198654b4ffd7eee3d260e3}\label{divide__and__conquer_8cpp_aa60d17a9a8198654b4ffd7eee3d260e3}} 
+\index{divide\_and\_conquer.cpp@{divide\_and\_conquer.cpp}!adj@{adj}}
+\index{adj@{adj}!divide\_and\_conquer.cpp@{divide\_and\_conquer.cpp}}
+\doxysubsubsection{\texorpdfstring{adj}{adj}}
+{\footnotesize\ttfamily unordered\+\_\+map$<$int, list$<$int$>$ $>$ adj}
+
+
+
+adjacency listunordered\+\_\+map The documentation block cannot be put after the enum! 
+
+an unordered map for adjacency list \mbox{\Hypertarget{divide__and__conquer_8cpp_a69bc3a835bcd545e9f495f21e61930c2}\label{divide__and__conquer_8cpp_a69bc3a835bcd545e9f495f21e61930c2}} 
+\index{divide\_and\_conquer.cpp@{divide\_and\_conquer.cpp}!rev\_adj@{rev\_adj}}
+\index{rev\_adj@{rev\_adj}!divide\_and\_conquer.cpp@{divide\_and\_conquer.cpp}}
+\doxysubsubsection{\texorpdfstring{rev\_adj}{rev\_adj}}
+{\footnotesize\ttfamily unordered\+\_\+map$<$int, list$<$int$>$ $>$ rev\+\_\+adj}
+
+
+
+an unordered map for reverse adjacency list 
+

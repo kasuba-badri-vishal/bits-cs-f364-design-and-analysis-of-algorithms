@@ -1,0 +1,147 @@
+\hypertarget{namespacegraphing}{}\doxysection{graphing Namespace Reference}
+\label{namespacegraphing}\index{graphing@{graphing}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacegraphing_acc57e7f940f7af77eb2863523566f132}{dataset\+\_\+name}} = sys.\+argv\mbox{[}1\mbox{]}.split(\textquotesingle{}/\textquotesingle{})\mbox{[}-\/1\mbox{]}\mbox{[}\+:-\/4\mbox{]}
+\item 
+\mbox{\hyperlink{namespacegraphing_a6f9fb52cc1ca8922788ae09feca09661}{DG}} = nx.\+Di\+Graph()
+\item 
+\mbox{\hyperlink{namespacegraphing_ae7aa8d39bceaa14b18b5b8e0a530ce9f}{v}}
+\item 
+\mbox{\hyperlink{namespacegraphing_aca3b2d08a8ee915d17dc450b26ef5750}{e}}
+\item 
+\mbox{\hyperlink{namespacegraphing_a195cfaac625370307d9b7b4ab535149e}{line}} = edges\+\_\+file.\+readline()
+\item 
+\mbox{\hyperlink{namespacegraphing_a9eb1617a2c0704af96be73b103b0fc38}{x}}
+\item 
+\mbox{\hyperlink{namespacegraphing_a56adf673f3887f674fbda6c14604a1d0}{y}}
+\item 
+\mbox{\hyperlink{namespacegraphing_a263be7aea36154d76922617116b00c7e}{shape}} = nx.\+spring\+\_\+layout(\mbox{\hyperlink{namespacegraphing_a6f9fb52cc1ca8922788ae09feca09661}{DG}})
+\item 
+dictionary \mbox{\hyperlink{namespacegraphing_a60ef41207a46d35d62084d960125efa6}{options}}
+\item 
+\mbox{\hyperlink{namespacegraphing_a4b8fee13a7d57e333e555e1ec1260c59}{comp\+\_\+graph}} = nx.\+Di\+Graph()
+\item 
+\mbox{\hyperlink{namespacegraphing_a2f4a19775fb143520916cfe0086f1c30}{colors}} = np.\+array(\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{namespacegraphing_a211e872ae0841b6aad3e270062927170}{c}} = 0
+\item 
+\mbox{\hyperlink{namespacegraphing_a37a4ac291078d58d612c360f34c54974}{s}} = scc.\+readlines()
+\item 
+\mbox{\hyperlink{namespacegraphing_a51098f4c7339854e88354b6923aa0cb3}{V}} = list(map(int, line.\+split()))
+\item 
+\mbox{\hyperlink{namespacegraphing_a09c8d67211c100df56cdd1f690da876e}{sub}} = D\+G.\+subgraph(\mbox{\hyperlink{namespacegraphing_a51098f4c7339854e88354b6923aa0cb3}{V}})
+\item 
+\mbox{\hyperlink{namespacegraphing_a86f5994decce3be8c14f78983e20975f}{labels}} = dict(zip(comp\+\_\+graph.\+nodes, list(map(str, comp\+\_\+graph.\+nodes))))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacegraphing_a211e872ae0841b6aad3e270062927170}\label{namespacegraphing_a211e872ae0841b6aad3e270062927170}} 
+\index{graphing@{graphing}!c@{c}}
+\index{c@{c}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily int graphing.\+c = 0}
+
+\mbox{\Hypertarget{namespacegraphing_a2f4a19775fb143520916cfe0086f1c30}\label{namespacegraphing_a2f4a19775fb143520916cfe0086f1c30}} 
+\index{graphing@{graphing}!colors@{colors}}
+\index{colors@{colors}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{colors}{colors}}
+{\footnotesize\ttfamily graphing.\+colors = np.\+array(\mbox{[}$\,$\mbox{]})}
+
+\mbox{\Hypertarget{namespacegraphing_a4b8fee13a7d57e333e555e1ec1260c59}\label{namespacegraphing_a4b8fee13a7d57e333e555e1ec1260c59}} 
+\index{graphing@{graphing}!comp\_graph@{comp\_graph}}
+\index{comp\_graph@{comp\_graph}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{comp\_graph}{comp\_graph}}
+{\footnotesize\ttfamily graphing.\+comp\+\_\+graph = nx.\+Di\+Graph()}
+
+\mbox{\Hypertarget{namespacegraphing_acc57e7f940f7af77eb2863523566f132}\label{namespacegraphing_acc57e7f940f7af77eb2863523566f132}} 
+\index{graphing@{graphing}!dataset\_name@{dataset\_name}}
+\index{dataset\_name@{dataset\_name}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{dataset\_name}{dataset\_name}}
+{\footnotesize\ttfamily graphing.\+dataset\+\_\+name = sys.\+argv\mbox{[}1\mbox{]}.split(\textquotesingle{}/\textquotesingle{})\mbox{[}-\/1\mbox{]}\mbox{[}\+:-\/4\mbox{]}}
+
+\mbox{\Hypertarget{namespacegraphing_a6f9fb52cc1ca8922788ae09feca09661}\label{namespacegraphing_a6f9fb52cc1ca8922788ae09feca09661}} 
+\index{graphing@{graphing}!DG@{DG}}
+\index{DG@{DG}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{DG}{DG}}
+{\footnotesize\ttfamily graphing.\+DG = nx.\+Di\+Graph()}
+
+\mbox{\Hypertarget{namespacegraphing_aca3b2d08a8ee915d17dc450b26ef5750}\label{namespacegraphing_aca3b2d08a8ee915d17dc450b26ef5750}} 
+\index{graphing@{graphing}!e@{e}}
+\index{e@{e}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{e}{e}}
+{\footnotesize\ttfamily graphing.\+e}
+
+\mbox{\Hypertarget{namespacegraphing_a86f5994decce3be8c14f78983e20975f}\label{namespacegraphing_a86f5994decce3be8c14f78983e20975f}} 
+\index{graphing@{graphing}!labels@{labels}}
+\index{labels@{labels}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{labels}{labels}}
+{\footnotesize\ttfamily graphing.\+labels = dict(zip(comp\+\_\+graph.\+nodes, list(map(str, comp\+\_\+graph.\+nodes))))}
+
+\mbox{\Hypertarget{namespacegraphing_a195cfaac625370307d9b7b4ab535149e}\label{namespacegraphing_a195cfaac625370307d9b7b4ab535149e}} 
+\index{graphing@{graphing}!line@{line}}
+\index{line@{line}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{line}{line}}
+{\footnotesize\ttfamily graphing.\+line = edges\+\_\+file.\+readline()}
+
+\mbox{\Hypertarget{namespacegraphing_a60ef41207a46d35d62084d960125efa6}\label{namespacegraphing_a60ef41207a46d35d62084d960125efa6}} 
+\index{graphing@{graphing}!options@{options}}
+\index{options@{options}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{options}{options}}
+{\footnotesize\ttfamily dictionary graphing.\+options}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2     \textcolor{stringliteral}{'node\_size'}: 20,}
+\DoxyCodeLine{3     \textcolor{stringliteral}{'width'}: 0.1,}
+\DoxyCodeLine{4     \textcolor{stringliteral}{'alpha'}:0.6,}
+\DoxyCodeLine{5     \textcolor{stringliteral}{'edge\_color'}: \textcolor{stringliteral}{'\#333333'},}
+\DoxyCodeLine{6     \textcolor{stringliteral}{'pos'}:shape}
+\DoxyCodeLine{7 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacegraphing_a37a4ac291078d58d612c360f34c54974}\label{namespacegraphing_a37a4ac291078d58d612c360f34c54974}} 
+\index{graphing@{graphing}!s@{s}}
+\index{s@{s}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{s}{s}}
+{\footnotesize\ttfamily graphing.\+s = scc.\+readlines()}
+
+\mbox{\Hypertarget{namespacegraphing_a263be7aea36154d76922617116b00c7e}\label{namespacegraphing_a263be7aea36154d76922617116b00c7e}} 
+\index{graphing@{graphing}!shape@{shape}}
+\index{shape@{shape}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{shape}{shape}}
+{\footnotesize\ttfamily graphing.\+shape = nx.\+spring\+\_\+layout(\mbox{\hyperlink{namespacegraphing_a6f9fb52cc1ca8922788ae09feca09661}{DG}})}
+
+\mbox{\Hypertarget{namespacegraphing_a09c8d67211c100df56cdd1f690da876e}\label{namespacegraphing_a09c8d67211c100df56cdd1f690da876e}} 
+\index{graphing@{graphing}!sub@{sub}}
+\index{sub@{sub}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{sub}{sub}}
+{\footnotesize\ttfamily graphing.\+sub = D\+G.\+subgraph(\mbox{\hyperlink{namespacegraphing_a51098f4c7339854e88354b6923aa0cb3}{V}})}
+
+\mbox{\Hypertarget{namespacegraphing_ae7aa8d39bceaa14b18b5b8e0a530ce9f}\label{namespacegraphing_ae7aa8d39bceaa14b18b5b8e0a530ce9f}} 
+\index{graphing@{graphing}!v@{v}}
+\index{v@{v}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{v}{v}}
+{\footnotesize\ttfamily graphing.\+v}
+
+\mbox{\Hypertarget{namespacegraphing_a51098f4c7339854e88354b6923aa0cb3}\label{namespacegraphing_a51098f4c7339854e88354b6923aa0cb3}} 
+\index{graphing@{graphing}!V@{V}}
+\index{V@{V}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{V}{V}}
+{\footnotesize\ttfamily graphing.\+V = list(map(int, line.\+split()))}
+
+\mbox{\Hypertarget{namespacegraphing_a9eb1617a2c0704af96be73b103b0fc38}\label{namespacegraphing_a9eb1617a2c0704af96be73b103b0fc38}} 
+\index{graphing@{graphing}!x@{x}}
+\index{x@{x}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily graphing.\+x}
+
+\mbox{\Hypertarget{namespacegraphing_a56adf673f3887f674fbda6c14604a1d0}\label{namespacegraphing_a56adf673f3887f674fbda6c14604a1d0}} 
+\index{graphing@{graphing}!y@{y}}
+\index{y@{y}!graphing@{graphing}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily graphing.\+y}
+

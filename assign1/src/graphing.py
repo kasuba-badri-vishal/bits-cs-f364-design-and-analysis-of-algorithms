@@ -23,14 +23,24 @@ with open(sys.argv[1]) as edges_file:
         DG.add_weighted_edges_from([(x, y, 1)])
 
 shape = nx.spring_layout(DG)
+# labels = dict(zip(DG.nodes, list(map(str, DG.nodes))))
+# options = {
+#     'node_size': 120,
+#     'width': 1,
+#     'font_size':10,
+#     'font_weight':'bold',
+#     'alpha':0.6,
+#     'edge_color': '#333333',
+# }
 options = {
     'node_size': 20,
     'width': 0.1,
+    'font_size':10,
     'alpha':0.6,
-    'edge_color': '#333333',
-    'pos':shape
+    'edge_color': '#555555',
 }
-nx.draw(DG, **options)
+# nx.draw(DG, pos=shape, labels=labels, **options)
+nx.draw(DG, pos=shape, **options)
 plt.title(dataset_name)
 plt.savefig(f"../results/graphs/{dataset_name}.png")
 # plt.show()
@@ -50,27 +60,13 @@ with open(sys.argv[2]) as scc:
         if(len(V)==0): break
         sub = DG.subgraph(V)
         colors = np.append(colors, np.ones((len(V), )) * np.random.randint(255))
-        # colors = np.append(colors, np.array([(np.random.randint(100), np.random.randint(100), np.random.randint(100))]*len(V)))
         comp_graph = nx.union(comp_graph, sub)
 
 shape = nx.spring_layout(comp_graph)
-labels = dict(zip(comp_graph.nodes, list(map(str, comp_graph.nodes))))
-options = {
-    # 'node_size': 80,
-    'node_size': 100,
-    # 'width': 0.2,
-    'width': 1,
-    'font_size':10,
-    'edge_color': '#333333',
-    'alpha':0.5,
-    "node_color":colors,
-    'pos':shape,
-    'cmap':'jet',
-    'labels':labels   
-}
-
+# labels = dict(zip(comp_graph.nodes, list(map(str, comp_graph.nodes))))
 
 plt.figure()
-nx.draw(comp_graph,  **options)
+# nx.draw(comp_graph, pos=shape, labels=labels, cmap='jet', node_color=colors, **options)
+nx.draw(comp_graph, pos=shape, cmap='jet', node_color=colors, **options)
 plt.savefig(f"../results/graphs/{dataset_name}_comp.png")
 # plt.show()

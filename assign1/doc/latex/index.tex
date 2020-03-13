@@ -1,0 +1,11 @@
+Two different algorithms have been implemented to find the Strongly Connected Components
+
+1) Kosaraju\textquotesingle{}s Algorithm.
+\begin{DoxyItemize}
+\item This algorithm uses topological sort and dfs to find Strongly Connected Components of a given graph.
+\end{DoxyItemize}
+
+2) Divide and Conquer Algorithm.
+\begin{DoxyItemize}
+\item This algorithm follows a divide and conquer approach to divide the set of vertices into multiple disjoint sets and work on each set individually. The algorithm requires a function to find predecessors and descendents of a vertex. $\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$ D\+C\+S\+C(\+G) If G has no edges then forall v in V Output \{v\}. Else Select a random vertex v from V S\+CC $<$-\/ Pred(\+G, v) \textbackslash{} Desc(\+G, v) Output S\+CC D\+C\+SC(Pred(\+G, v) \textbackslash{} S\+CC) D\+C\+SC(Desc(\+G, v) \textbackslash{} S\+CC) D\+C\+S\+C(\+Rem(\+G, v)) $\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$ 
+\end{DoxyItemize}
