@@ -1,5 +1,7 @@
 #include<bits/stdc++.h>
-#include<sys/resource.h>
+#include<sys/resource.h>  
+#include <chrono> 
+using namespace std::chrono;
 using namespace std;
 
 //Initialize parent array before calling BFS function
@@ -92,7 +94,7 @@ void fordFulkerson(vector<pair<int,int> > Capacity[],vector<pair<int,int> > Flow
         int bottleNeck = findBottleNeck(Res,src,sink,parent,nVer);
         // cout<<bottleNeck<<"\n";
         maxflow += bottleNeck;
-        cout<<maxflow<<"\n";
+        // cout<<maxflow<<"\n";
         //a,b always decrease and b,a always increase in res graph
         int v=sink;
         while(parent[v]!=-1){
@@ -150,7 +152,7 @@ void fordFulkerson(vector<pair<int,int> > Capacity[],vector<pair<int,int> > Flow
 }
 
 void BipartiteMatching(){
-    cout<<"Hello\n";
+    // cout<<"Hello\n";
     int nVer,nEdg;
     int v1,v2,a,b;
     cin>>a>>b>>nEdg;
@@ -190,7 +192,11 @@ int main(){
     getrlimit(RLIMIT_STACK, &R);
     R.rlim_cur = R.rlim_max;
     setrlimit(RLIMIT_STACK, &R);
+    auto start = high_resolution_clock::now();
     BipartiteMatching();
+    auto stop = high_resolution_clock::now();
+	auto duration = duration_cast<milliseconds>(stop - start); 
+	cout << "Time taken: "<<duration.count() << endl;
     return 0;
     int nVer,nEdg;
     cin>>nVer>>nEdg;
