@@ -1,6 +1,6 @@
 graphs/network flow/1 
-No of Vertices : 
-No of Edges : 
+No of Vertices : 955 
+No of Edges : 116535
 Source 1
 Sink 955
 22362
@@ -193,8 +193,8 @@ Time taken: 407
 
 
 graphs/network flow/2
-No of Vertices : 
-No of Edges : 
+No of Vertices : 2000 
+No of Edges : 493202
 Source 1
 Sink 2000
 751
@@ -302,8 +302,8 @@ Mincut Edges are
 Time taken: 879
 
 graphs/network flow/3
-No of Vertices : 
-No of Edges : 
+No of Vertices : 2200 
+No of Edges : 546864
 11146366
 11293515
 11377355
@@ -1349,38 +1349,38 @@ Time taken: 12848
 All these Graphs are single Edge graphs 
 So output is too long 
 Dataset/5b
-No of Vertices : 
-No of Edges :
+No of Vertices : 55469 
+No of Edges : 114062
 Max Flow: 12652
 Time taken: 163938
 
 Dataset/6b
-No of Vertices : 
-No of Edges :
+No of Vertices : 2211 
+No of Edges : 3685
 451
 Time taken: 117
 
 Dataset/7b
-No of Vertices : 
-No of Edges :
+No of Vertices : 914 
+No of Edges : 1912
 Max Flow: 63
 Time taken: 7
 
 Dataset/8b
-No of Vertices : 
-No of Edges :
+No of Vertices : 8077 
+No of Edges : 18075
 Max Flow: 959
 Time taken: 1595
 
 Dataset/9b
-No of Vertices : 
-No of Edges :
+No of Vertices : 14460 
+No of Edges : 34458
 Max Flow: 2202
 Time taken: 7825
 
 Dataset/10b
-No of Vertices : 
-No of Edges :
+No of Vertices : 20456 
+No of Edges : 50454
 Max Flow: 4069
 Time taken: 22700
 
@@ -1390,17 +1390,17 @@ Bipartite Graphs
 
 
 graphs/bipartite/1
-No of Vertices set1:
-No of Vertices set2: 
-No of Edges :
+No of Vertices set1: 16726
+No of Vertices set2: 22015
+No of Edges : 58595
 Max Bipartite Matching: 12652
 Time taken: 40000-50000 (40-50sec)
 
 
 graphs/bipartite/3
-No of Vertices set1:
-No of Vertices set2: 
-No of Edges :
+No of Vertices set1: 258769
+No of Vertices set2: 7783
+No of Edges : 463497
 Max Bipartite Matching: 7391
 Time taken: 180000-240000 (3-4min)
 
