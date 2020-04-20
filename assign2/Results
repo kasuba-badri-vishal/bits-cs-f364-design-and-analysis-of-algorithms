@@ -1,0 +1,3 @@
+Time complexity
+The Ford-Fulkerson algorithm, computing max-flow in the network runs in O(mC) time.
+m=No. of edges, C=max. flow
