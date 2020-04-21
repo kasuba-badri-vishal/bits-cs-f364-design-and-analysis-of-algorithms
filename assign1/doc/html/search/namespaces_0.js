@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['graphing_52',['graphing',['../namespacegraphing.html',1,'']]]
+  ['graphing_48',['graphing',['../namespacegraphing.html',1,'']]]
 ];

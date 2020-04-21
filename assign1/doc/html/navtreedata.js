@@ -24,8 +24,7 @@ var NAVTREE =
 [
   [ "DAA Assignment 1", "index.html", [
     [ "Kosaraju Algorithm and Divide and Conquer Algorithm", "index.html", null ],
-    [ "Results", "md__e_1__projects__d_a_a__assignments_assign1_doc_doc_pages_page_one.html", null ],
-    [ "Strongly Connected Components", "subsystem1.html", "subsystem1" ],
+    [ "Results", "md_doc_doc_pages_page_one.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
