@@ -20,3 +20,5 @@ To run the graphing algorithm
 python graphing.py ../datasets/[dataset_file] ../results/[results_file]
 
 The graphs are stored in results/graph folder
+
+Open the doxygen documentation with ./doc/html/index.html file.

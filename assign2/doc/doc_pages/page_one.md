@@ -1,0 +1,17 @@
+# Results
+
+Results Produced
+
+Dataset      | Results |  Ford-Fulkerson algorithm (Time taken)
+:-----------:|:-----:|:-----------------------:
+1) Dataset/5b   | Nodes: 55469<br>Edges: 114062<br>Max Flow: 1265  | 163.938 s
+2) Dataset/6b   | Nodes: 2211<br>Edges: 3685<br>Max Flow: 451      | 0.117 s
+3) Dataset/7b   | Nodes: 914<br>Edges: 1912<br>Max Flow: 63        | 0.007 s
+4) Dataset/8b   | Nodes: 8077<br>Edges: 18075<br>Max Flow: 959     | 1.595 s
+5) Dataset/9b   | Nodes: 14460<br>Edges: 34458<br>Max Flow: 2202   | 7.825 s
+6) Dataset/10b  | Nodes: 20456<br>Edges: 50454<br>Max Flow: 4069   | 22.700 s
+
+Dataset      | Results |  Bipartite Matching (Time taken)
+:-----------:|:-----:|:-----------------------:
+1) graphs/bipartite/1   | Nodes (set1): 16726<br>Nodes (set2): 22015<br>Edges: 58595<br>Max Bipartite Matching: 12652  | ~45 s
+2) graphs/bipartite/3   | Nodes (set1): 258769<br>Nodes (set2): 7783<br>Edges: 463497<br>Max Bipartite Matching: 7391  | ~3.5 min
