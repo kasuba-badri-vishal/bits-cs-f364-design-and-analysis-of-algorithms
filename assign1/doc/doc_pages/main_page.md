@@ -36,3 +36,18 @@ Two different algorithms have been implemented to find the Strongly Connected Co
                 DCSC(Desc(G, v) \ SCC)
                 DCSC(Rem(G, v))
 ~~~~~~~~~~~~~~~~~~~~~~
+
+### A Comparison and Analysis of the Algorithms
+
+1. We can find all strongly connected components in O(m+n) time, where 'n' is the number of vertices & 'm' is the number of edges, using Kosaraju’s algorithm. 
+This calculation is asymptotically best calculation, however there are different algorithms like Tarjan's and path based algorithms having same time complexity yet look for strongly connected components utilizing single DFS.
+
+2. This algorithm runs in O(m log n) time. The worst case (when the descendant set is very large) leads to Θ(mn) runtime. The best case (when the remainder set is very large) leads to Θ(m) runtime. By choosing the pivot vertex arbitrarily, the expected complexity of the algorithm is bounded as Θ(m lg n + n). The modified version has a worst–case complexity of O(m log n). Here, 'n' is the number of vertices and 'm' is the number of edges.
+
+If we try to compare the time complexities of the 2 algorithms, either could be the better one depending on the situation. Assuming that they're equal, we have O(n) vs O(n log n), so the algorithm with O(n + m) complexity is faster. If, on the other hand, m is effectively constant while n grows quickly, then we have O(n) vs O(log n), so the second one is better. 
+So, the second is better for large n, and the first is better for cases where both m and n are large. (If m dominates the equation then they're both linear.)
+
+
+### Applications: 
+Algorithms to find strongly connected components are often used as a starting step in many graph algorithms that work only on strongly connected graphs. Another application is that in social networks, a group of people is generally considered a strongly connected component. People belonging to such groups often like similar kinds of pages or play common games. This calculation can be utilized to discover such groups and suggest these commonly preferred pages or games to the individuals in the group who haven't liked these pages or engaged in these games yet.
+
