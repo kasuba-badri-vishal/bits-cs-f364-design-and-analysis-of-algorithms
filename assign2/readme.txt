@@ -16,4 +16,4 @@ All the results are present in Results.txt
 
 Open the doxygen documentation with ./doc/html/index.html file.
 
-Navigate to Files -> File List -> ford-fulkerson.cpp to find documentation for the source code.
+Navigate to Files -> File List -> ford-fulkerson.cpp in the UI to find documentation for the source code.
