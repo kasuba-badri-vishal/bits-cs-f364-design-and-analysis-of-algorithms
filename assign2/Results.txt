@@ -1394,7 +1394,7 @@ No of Vertices set1: 16726
 No of Vertices set2: 22015
 No of Edges : 58595
 Max Bipartite Matching: 12652
-Time taken: 40000-50000 (40-50sec)
+Time taken: 141179
 
 
 graphs/bipartite/3
