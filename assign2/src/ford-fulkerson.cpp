@@ -10,11 +10,20 @@ int nVSet1=0;
 
 class Graph{
     public:
-    int nVer,nEdg;
-    int src,sink;
-    vector<pair<int,int> >* Capacity;
-    vector<pair<int,int> >* Flow;
-    vector<pair<pair<int,int>,char>>* Res;
+    int nVer; /**< number of vertices */
+    int nEdg; /**< number of edges */
+    int src;  /**< source node */
+    int sink; /**< sink node */
+    vector<pair<int,int> >* Capacity; /**< array of capacities for edges of the graph */
+    vector<pair<int,int> >* Flow;  /**< array of flow values for all edges of the graph */
+    vector<pair<pair<int,int>,char>>* Res; /**< Residual graph */
+
+    /// This is a constructor for the Graph class.
+	///	It is called by passing the number of vertices and edges as arguments.
+	///
+	/// @param v : number of vertices
+	/// @param e : number of edges
+	/// @returns nothing is returned
 
     Graph(int v,int e){
         nVer = v;

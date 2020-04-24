@@ -1,0 +1,220 @@
+.TH "Graph" 3 "Fri Apr 24 2020" "DAA Assignment 2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Graph
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGraph\fP (int v, int e)"
+.br
+.RI "This is a constructor for the \fBGraph\fP class\&. "
+.ti -1c
+.RI "bool \fBfindPath\fP (vector< pair< pair< int, int >, char >> \fBRes\fP[], int \fBsrc\fP, int \fBsink\fP, int parent[], int \fBnVer\fP)"
+.br
+.RI "This Program is the implementation the 'Ford-Fulkerson' algorithm to find the maximum flow and minimum cut\&. "
+.ti -1c
+.RI "int \fBfindMinCut\fP (vector< pair< pair< int, int >, char >> \fBRes\fP[], vector< pair< int, int > > \fBCapacity\fP[], int \fBsrc\fP, int \fBnVer\fP)"
+.br
+.RI "This function finds an s-t cut of minimum capacity between the two partitions\&. "
+.ti -1c
+.RI "int \fBfindBottleNeck\fP (vector< pair< pair< int, int >, char >> \fBRes\fP[], int source, int \fBsink\fP, int parent[], int \fBnVer\fP)"
+.br
+.RI "This function finds the bottleneck capacity in all paths between source and sink\&. "
+.ti -1c
+.RI "void \fBfordFulkerson\fP (vector< pair< int, int > > \fBCapacity\fP[], vector< pair< int, int > > \fBFlow\fP[], vector< pair< pair< int, int >, char >> \fBRes\fP[], int \fBsrc\fP, int \fBsink\fP, int \fBnVer\fP)"
+.br
+.RI "This function implements the ford-fulkerson's algorithms to find maxflow-mincut of a graph\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBnVer\fP"
+.br
+.RI "number of vertices "
+.ti -1c
+.RI "int \fBnEdg\fP"
+.br
+.RI "number of edges "
+.ti -1c
+.RI "int \fBsrc\fP"
+.br
+.RI "source node "
+.ti -1c
+.RI "int \fBsink\fP"
+.br
+.RI "sink node "
+.ti -1c
+.RI "vector< pair< int, int > > * \fBCapacity\fP"
+.br
+.RI "array of capacities for edges of the graph "
+.ti -1c
+.RI "vector< pair< int, int > > * \fBFlow\fP"
+.br
+.RI "array of flow values for all edges of the graph "
+.ti -1c
+.RI "vector< pair< pair< int, int >, char > > * \fBRes\fP"
+.br
+.RI "Residual graph\&. "
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Graph::Graph (int v, int e)\fC [inline]\fP"
+
+.PP
+This is a constructor for the \fBGraph\fP class\&. It is called by passing the number of vertices and edges as arguments\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP : number of vertices 
+.br
+\fIe\fP : number of edges 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+nothing is returned 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int Graph::findBottleNeck (vector< pair< pair< int, int >, char >> Res[], int source, int sink, int parent[], int nVer)"
+
+.PP
+This function finds the bottleneck capacity in all paths between source and sink\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIRes\fP : an array of vectors\&. Each vector is a pair of pair<int, int> and char\&. 
+.br
+\fICapacity\fP : an array of vectors\&. Each vector is a pair of integers\&. 
+.br
+\fIsrc\fP : an integer, source node\&. 
+.br
+\fIsink\fP : an integer, sink node\&. 
+.br
+\fIparent\fP : array of parent nodes\&. 
+.br
+\fInVer\fP : number of vertices\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+integer\&. the bottleneck capactiy\&. 
+.RE
+.PP
+
+.SS "int Graph::findMinCut (vector< pair< pair< int, int >, char >> Res[], vector< pair< int, int > > Capacity[], int src, int nVer)"
+
+.PP
+This function finds an s-t cut of minimum capacity between the two partitions\&. Flow is always limited by capacity of S-T cut edges max flow and min cut are same flow in edges from A to B is full capacity and B to A is 0
+.PP
+\fBParameters\fP
+.RS 4
+\fIRes\fP : an array of vectors\&. Each vector is a pair of pair<int, int> and char\&. 
+.br
+\fICapacity\fP : an array of vectors\&. Each vector is a pair of integers\&. 
+.br
+\fIsrc\fP : an integer, source node\&. 
+.br
+\fInVer\fP : number of vertices\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+integer\&. minimum capacity\&. 
+.RE
+.PP
+
+.SS "bool Graph::findPath (vector< pair< pair< int, int >, char >> Res[], int src, int sink, int parent[], int nVer)"
+
+.PP
+This Program is the implementation the 'Ford-Fulkerson' algorithm to find the maximum flow and minimum cut\&. This function finds if a path exists between source node and sink node using BFS\&.
+.PP
+Initialize parent array before calling BFS function
+.PP
+\fBParameters\fP
+.RS 4
+\fIRes\fP : an array of vectors\&. Each vector is a pair of pair<int, int> and char\&. 
+.br
+\fIsrc\fP : an integer, source node\&. 
+.br
+\fIsink\fP : an integer, sink node\&. 
+.br
+\fIparent\fP : array of parent nodes\&. 
+.br
+\fInVer\fP : number of vertices\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+boolean\&. True if a path is found else False\&. 
+.RE
+.PP
+
+.SS "void Graph::fordFulkerson (vector< pair< int, int > > Capacity[], vector< pair< int, int > > Flow[], vector< pair< pair< int, int >, char >> Res[], int src, int sink, int nVer)"
+
+.PP
+This function implements the ford-fulkerson's algorithms to find maxflow-mincut of a graph\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fICapacity\fP : an array of vectors\&. Each vector is a pair of integers (edge)\&. Represents capacity of edges\&. 
+.br
+\fIFlow\fP : an array of vectors\&. Each vector is a pair of integers (edge)\&. Represents flow of edges\&. 
+.br
+\fIRes\fP : an array of vectors\&. Each vector is a pair of pair<int, int> and char\&. 
+.br
+\fIsrc\fP : an integer, source node\&. 
+.br
+\fIsink\fP : an integer, sink node\&. 
+.br
+\fInVer\fP : number of vertices\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "vector<pair<int,int> >* Graph::Capacity"
+
+.PP
+array of capacities for edges of the graph 
+.SS "vector<pair<int,int> >* Graph::Flow"
+
+.PP
+array of flow values for all edges of the graph 
+.SS "int Graph::nEdg"
+
+.PP
+number of edges 
+.SS "int Graph::nVer"
+
+.PP
+number of vertices 
+.SS "vector<pair<pair<int,int>,char> >* Graph::Res"
+
+.PP
+Residual graph\&. 
+.SS "int Graph::sink"
+
+.PP
+sink node 
+.SS "int Graph::src"
+
+.PP
+source node 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DAA Assignment 2 from the source code\&.
