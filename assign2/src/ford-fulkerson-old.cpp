@@ -7,26 +7,6 @@ using namespace std;
 
 int Bipar = 0;
 int nVSet1=0;
-
-class Graph{
-    public:
-    int nVer,nEdg;
-    int src,sink;
-    vector<pair<int,int> >* Capacity;
-    vector<pair<int,int> >* Flow;
-    vector<pair<pair<int,int>,char>>* Res;
-
-    Graph(int v,int e){
-        nVer = v;
-        nEdg = e;
-    }
-    bool findPath(vector<pair<pair<int,int>,char>> Res[],int src,int sink,int parent[],int nVer);
-    int findMinCut(vector<pair<pair<int,int>,char>> Res[],vector<pair<int,int> > Capacity[],int src,int nVer);
-    int findBottleNeck(vector<pair<pair<int,int>,char>> Res[],int source,int sink,int parent[],int nVer);
-    void fordFulkerson(vector<pair<int,int> > Capacity[],vector<pair<int,int> > Flow[],vector<pair<pair<int,int>,char>> Res[],int src,int sink,int nVer);
-
-
-};
 /// This Program is the implementation the "Ford-Fulkerson" algorithm to find the maximum flow and minimum cut.
 
 /// This function finds if a path exists between source node and sink node using BFS.
@@ -40,7 +20,7 @@ class Graph{
 /// @param nVer : number of vertices.
 /// @returns boolean. True if a path is found else False.
 
-bool Graph::findPath(vector<pair<pair<int,int>,char>> Res[],int src,int sink,int parent[],int nVer){
+bool findPath(vector<pair<pair<int,int>,char>> Res[],int src,int sink,int parent[],int nVer){
     int visited[nVer+1];
     memset(visited,0,sizeof(visited));
     queue<int> BFS;
@@ -75,7 +55,7 @@ bool Graph::findPath(vector<pair<pair<int,int>,char>> Res[],int src,int sink,int
 /// @param nVer : number of vertices.
 /// @returns integer. minimum capacity.
 
-int Graph::findMinCut(vector<pair<pair<int,int>,char>> Res[],vector<pair<int,int> > Capacity[],int src,int nVer){
+int findMinCut(vector<pair<pair<int,int>,char>> Res[],vector<pair<int,int> > Capacity[],int src,int nVer){
     set<int> A; //set of all reachable vertices
     queue<int> BFS;
     int visited[nVer+1];
@@ -119,7 +99,7 @@ int Graph::findMinCut(vector<pair<pair<int,int>,char>> Res[],vector<pair<int,int
 /// @param nVer : number of vertices.
 /// @returns integer. the bottleneck capactiy.
 
-int Graph::findBottleNeck(vector<pair<pair<int,int>,char>> Res[],int source,int sink,int parent[],int nVer){
+int findBottleNeck(vector<pair<pair<int,int>,char>> Res[],int source,int sink,int parent[],int nVer){
     int bottleNeck=INT_MAX;
     int v =sink;
     while(parent[v]!=-1){
@@ -145,11 +125,11 @@ int Graph::findBottleNeck(vector<pair<pair<int,int>,char>> Res[],int source,int 
 /// @param nVer : number of vertices.
 /// @returns none
 
-void Graph::fordFulkerson(vector<pair<int,int> > Capacity[],vector<pair<int,int> > Flow[],vector<pair<pair<int,int>,char>> Res[],int src,int sink,int nVer){
+void fordFulkerson(vector<pair<int,int> > Capacity[],vector<pair<int,int> > Flow[],vector<pair<pair<int,int>,char>> Res[],int src,int sink,int nVer){
     int maxflow = 0;
     int parent[nVer+1];
     memset(parent,0,sizeof(parent));
-    while(Graph::findPath(Res,src,sink,parent,nVer)==true){
+    while(findPath(Res,src,sink,parent,nVer)==true){
         // cout<<"Path is -\n";
         // int v=sink;
         // while(parent[v]!=-1){
@@ -221,47 +201,40 @@ void BipartiteMatching(){
     int nVer,nEdg;
     int v1,v2,a,b;
     cin>>a>>b>>nEdg;
-    Graph biPartite(nVer,nEdg);
     nVSet1=a;
     nVer=a+b+2;
-    biPartite.src=1,biPartite.sink=nVer;
-
-    // vector<pair<int,int> > Capacity[nVer+1];
-    // vector<pair<int,int> > Flow[nVer+1];
-    // vector<pair<pair<int,int>,char>> Res[nVer+1];
-
-    biPartite.Capacity = new vector<pair<int,int> >[nVer+1] ;
-    biPartite.Flow = new vector<pair<int,int> >[nVer+1];
-    biPartite.Res = new vector<pair<pair<int,int>,char>>[nVer+1];
-
+    int src=1,sink=nVer;
+    vector<pair<int,int> > Capacity[nVer+1];
+    vector<pair<int,int> > Flow[nVer+1];
+    vector<pair<pair<int,int>,char>> Res[nVer+1];
     for(int i=1;i<=nEdg;i++){
         cin>>v1>>v2;
         //vertex in first set are 2 3 a+1..... 16501 
         //a+1+v2 
         v1++;
         v2 = a+1+v2;
-        biPartite.Capacity[v1].push_back(make_pair(v2,1));
-        biPartite.Flow[v1].push_back(make_pair(v2,0));
-        biPartite.Res[v1].push_back(make_pair(make_pair(v2,1),'f'));
-        biPartite.Res[v2].push_back(make_pair(make_pair(v1,0),'b'));
+        Capacity[v1].push_back(make_pair(v2,1));
+        Flow[v1].push_back(make_pair(v2,0));
+        Res[v1].push_back(make_pair(make_pair(v2,1),'f'));
+        Res[v2].push_back(make_pair(make_pair(v1,0),'b'));
     }
     for(int i=2;i<=a+1;i++){
-        biPartite.Capacity[1].push_back(make_pair(i,1));
-        biPartite.Flow[1].push_back(make_pair(i,0));
-        biPartite.Res[1].push_back(make_pair(make_pair(i,1),'f'));
-        biPartite.Res[i].push_back(make_pair(make_pair(1,0),'b'));
+        Capacity[1].push_back(make_pair(i,1));
+        Flow[1].push_back(make_pair(i,0));
+        Res[1].push_back(make_pair(make_pair(i,1),'f'));
+        Res[i].push_back(make_pair(make_pair(1,0),'b'));
     }
     for(int i=a+2;i<nVer;i++){
-        biPartite.Capacity[i].push_back(make_pair(biPartite.sink,1));
-        biPartite.Flow[i].push_back(make_pair(biPartite.sink,0));
-        biPartite.Res[i].push_back(make_pair(make_pair(biPartite.sink,1),'f'));
-        biPartite.Res[biPartite.sink].push_back(make_pair(make_pair(i,0),'b'));
+        Capacity[i].push_back(make_pair(sink,1));
+        Flow[i].push_back(make_pair(sink,0));
+        Res[i].push_back(make_pair(make_pair(sink,1),'f'));
+        Res[sink].push_back(make_pair(make_pair(i,0),'b'));
     }
 	
     //Finding time taken for Bipartite matching
     auto start = high_resolution_clock::now();
 
-    biPartite.fordFulkerson(biPartite.Capacity,biPartite.Flow,biPartite.Res,biPartite.src,biPartite.sink,biPartite.nVer);
+    fordFulkerson(Capacity,Flow,Res,src,sink,nVer);
 
     auto stop = high_resolution_clock::now();
 	auto duration = duration_cast<milliseconds>(stop - start); 
@@ -283,27 +256,17 @@ int main(){
     R.rlim_cur = R.rlim_max;
     setrlimit(RLIMIT_STACK, &R);
 
-    //// uncomment below two lines to find bipartite matching
+    // //// uncomment below two lines to find bipartite matching
     BipartiteMatching();
     return 0;
 
     int nVer,nEdg;
     cin>>nVer>>nEdg;
-    Graph network(nVer,nEdg);
     int v1,v2,edge;
-
-    // int src,sink;
-    // vector<pair<int,int> > Capacity[nVer+1];
-    // vector<pair<int,int> > Flow[nVer+1];
-    // vector<pair<pair<int,int>,char>> Res[nVer+1];
-    // network.Capacity = Capacity;
-    // network.Flow = Flow;
-    // network.Res = Res;
-
-    network.Capacity = new vector<pair<int,int> >[nVer+1] ;
-    network.Flow = new vector<pair<int,int> >[nVer+1];
-    network.Res = new vector<pair<pair<int,int>,char>>[nVer+1];
-
+    int src,sink;
+    vector<pair<int,int> > Capacity[nVer+1];
+    vector<pair<int,int> > Flow[nVer+1];
+    vector<pair<pair<int,int>,char>> Res[nVer+1];
     int inDegree[nVer+1];
     int outDegree[nVer+1];
     memset(inDegree,0,sizeof(inDegree));
@@ -314,23 +277,23 @@ int main(){
         v2++; //Depends on whether indexing starts from 1 or 0
         outDegree[v1]++;
         inDegree[v2]++;
-        network.Capacity[v1].push_back(make_pair(v2,edge));
-        network.Flow[v1].push_back(make_pair(v2,0));
-        network.Res[v1].push_back(make_pair(make_pair(v2,edge),'f'));
-        network.Res[v2].push_back(make_pair(make_pair(v1,0),'b'));
+        Capacity[v1].push_back(make_pair(v2,edge));
+        Flow[v1].push_back(make_pair(v2,0));
+        Res[v1].push_back(make_pair(make_pair(v2,edge),'f'));
+        Res[v2].push_back(make_pair(make_pair(v1,0),'b'));
     }
     for(int i=1;i<=nVer;i++){
         if(inDegree[i]==0){
-            network.src = i;
+            src = i;
         }
     }
     for(int i=1;i<=nVer;i++){
         if(outDegree[i]==0){
-            network.sink = i;
+            sink = i;
         }
     }
-    cout<<"Source "<<network.src<<"\n";
-    cout<<"Sink "<<network.sink<<"\n";
+    cout<<"Source "<<src<<"\n";
+    cout<<"Sink "<<sink<<"\n";
     // cout<<"Flow Graph\n";
     // for(int i=1;i<=nVer;i++){
     //     cout<<i<<"\n";
@@ -352,7 +315,7 @@ int main(){
     //Finding time taken to find maximum Network flow
 	auto start = high_resolution_clock::now();
 
-    network.fordFulkerson(network.Capacity,network.Flow,network.Res,network.src,network.sink,nVer);
+    fordFulkerson(Capacity,Flow,Res,src,sink,nVer);
 
     auto stop = high_resolution_clock::now();
 	auto duration = duration_cast<milliseconds>(stop - start); 
